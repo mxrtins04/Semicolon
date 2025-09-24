@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class PrintNum{
+	Public static void main(strings [ ] args){
+		Scanner input = new Scanner(System.in);
+		System.out.print("Input a number: ");
+		int v1 = input.nextInt();
+		
+		Scanner input = new Scanner(System.in);
+		System.out.print("Input a number: ");
+		int v2 = input.nextInt();
+
+		Scanner input = new Scanner(System.in);
+		System.out.print("Input a number: ");
+		int v3 = input.nextInt();
+
+		Scanner input = new Scanner(System.in);
+		System.out.print("Input a number: ");
+		int v4 = input.nextInt();
+
+		Scanner input = new Scanner(System.in);
+		System.out.print("Input a number: ");
+		int v5 = input.nextInt();
+
+		if (v1 > 0){
+		int pn = 1

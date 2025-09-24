@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+public class NumberClassifier{
+	public static void main(String [ ] args){
+		Scanner input = new Scanner(System.in);
+		System.out.print("Input 5 numbers(e.g 5 -5 0 3 54)");
+		int firstNum = input.nextInt();
+		int secondNum = input.nextInt();
+		int thirdNum = input.nextInt();
+		int fourthNum = input.nextInt();
+		int fifthNum = input.nextInt();
+
+		int numberOfNegative = 0;
+		int numberOfPositive = 0;
+		int NumberOfZero = 0;
+		if (firstNum < 0){
+			NumberOfNegative++;}
+
+		if (secondNum < 0){
+			NumberOfNegative++;}
+
+		if (thirdNum < 0){
+			NumberOfNegative++;}
+
+		if (fourthtNum < 0){
+			NumberOfNegative++;}
+
+		if (fifthtNum < 0){
+			NumberOfNegative++;}
+
+
+		if (firstNum == 0){
+			NumberOfZero++;}
+
+		if (secondNum == 0){
+			NumberOfZero++;}
+
+		if (thirdNum == 0){
+			NumberOfZeo++;}
+
+		if (fourthtNum == 0){
+			NumberOfZero++;}
+
+		if (fifthtNum == 0){
+			NumberOfZero++;}
+
+
+
+		if (firstNum > 0){
+			NumberOfPositive++;}
+
+		if (secondNum > 0){
+			NumberOfPositive++;}
+
+		if (thirdNum > 0){
+			NumberOfPositive++;}
+
+		if (fourthtNum > 0){
+			NumberOfPositive++;}
+
+		if (fifthtNum < 0){
+			NumberOfPositive++;}
+
+		System.out.printf("Number of positive inputs are: %d%nNumber of negative inputs are: %d%nNumber of zeros are:%d%n", NumOfPositive, NumOfNegative, NumOfZero);
+	}
+}
