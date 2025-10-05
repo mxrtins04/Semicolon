@@ -1,0 +1,16 @@
+decimal1 = float(input("Input a decimal: "))
+decimal2 = float(input("Input a decimal: "))
+decimal3 = float(input("Input a decimal: "))
+
+smallest = min(decimal1, decimal2, decimal3)
+largest = max(decimal1, decimal2, decimal3)
+
+if smallest is < decimal1 && largest is > decimal1:
+	mid = decimal1
+if smallest is < decimal3 && largest is > decimal3:
+	mid = decimal3
+if smallest is < decimal2 && largest is > decimal2:
+	mid = decimal2
+
+
+print("Here are the decimals you put in, in ascending order:", smallest, mid, largest)
