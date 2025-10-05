@@ -15,6 +15,8 @@ while True:
 
 	total_miles += miles
 	total_gallons += gallons
+	
+	
 
 combined_miles_per_gallon = total_miles / total_gallons
 print("The overall average is: ", combined_miles_per_gallon )
