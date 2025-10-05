@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Operation{
+	public static void main(String [ ] args){
+		Scanner input = new Scanner(System.in);
+		System.out.print("Input first number: ");
+		int firstNum = input.nextInt;
+		
+		System.out.print("What type of operation do you want to perform?")
+		String operator = input.nextLine;
+		
+		System.out.print("Input second number: ");
+		int secondNum = input.nextInt;
+
+		if ( operator == +){
+			int result = firstNum + secondNum;}
+		if ( operator == -){
+			int result = firstNum - secondNum;}
+		if ( operator == *){
+			int result = firstNum * secondNum;}
+		if ( operator == /){
+			int result = firstNum / secondNum;}
+		
+		System.out.printf("The result is %d", result);
+		
+		else {
+			System.out.print("The operator you inputted isn't valid.");}
+)
