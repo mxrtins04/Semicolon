@@ -9,7 +9,11 @@ def factorOf(number)
 			sum++;
 		count++	
 
+
 	return sum
+
+		return sum
+
 				
 
 
@@ -154,7 +158,11 @@ def factorialOf(number)
 
 
 def divide(number_1, number_2)
+
 	qoutient = number_1 / number_2
+
+	qoutient = number_1 / number_2
+
 	if( number_2 == 0):
 		qoutient = 0
 	return qoutient
