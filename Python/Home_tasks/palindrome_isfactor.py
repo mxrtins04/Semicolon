@@ -8,15 +8,15 @@ def isPalindrome(number)
 	int fifth_digit = last_2_Numbers % 10
 	
 
-	int count = 2
-	int sum = 0
+	count = 2
+	sum = 0
 	while( count < number):
 		if (number % count == 0)
 			sum++
 		count++
 	
 		
-	if(first_Digit == fifth_digit && second_digit == fourth_digit && sum == 0 ):
+	if(first_Digit == fifth_digit and second_digit == fourth_digit and sum == 0 ):
 		return true
 	else
 		return false
