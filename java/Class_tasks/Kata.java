@@ -1,7 +1,7 @@
 public class Kata{
 
 
-public static int factorOf(number){
+public static int factorOf(int number){
 	int sum = 0;
 	int count = 1;
 	while(count <= number){
@@ -40,7 +40,7 @@ public static boolean isOdd(int number){
 }
 
 
-public static boolean isLeapYear(int year){
+/* public static boolean isLeapYear(int year){
 	int check = 0;
 	if((year % 4 == 0) && year % 100 != 0)
 		check = 1;
@@ -53,7 +53,7 @@ public static boolean isLeapYear(int year){
 		return false;
 
 }
-
+*/
 public static double toConvert(double fahrenheit){
 
 	double celcius = (5 * (fahrenheit - 32)) / 9;
@@ -62,7 +62,7 @@ public static double toConvert(double fahrenheit){
 
 }
 
-public static void printStars(int numberOfRows){
+/* public static void printStars(int numberOfRows){
 	
 	int check = numberOfRows - (numberOfRows - 1);
 	while(numberOfRows >= 0)
@@ -70,15 +70,15 @@ public static void printStars(int numberOfRows){
 		while( count <= check){
 			System.out.print("*");
 			count++;}
-		println();
+		System.out.println();
 		check++;
 	
 		numberOfRows--;
 
 }
 
-
-public static boolean isEven(int number)
+*/
+public static boolean isEven(int number){
 
 	if( number % 2 == 0)
 		return true;
@@ -91,12 +91,12 @@ public static int subtract(int number1, int number2){
 	int max = 0;
 	int minimum = 0;
 
-	if( number1 > number2)
+	if( number1 > number2){
 		max = number1;
-		minimum = number2;
-	else
+		minimum = number2;}
+	else{
 		max = number2;
-		minimum = number1;
+		minimum = number1;}
 	
 
 	int difference = max - minimum;
@@ -125,9 +125,9 @@ public static boolean isSquare(int number){
 }
 
 
-def isPalindrome(int number){	
+public static boolean isPalindrome(int number){	
 			
-	first2Numbers = number / 1000;
+	int first2Numbers = number / 1000;
 	int last2Numbers = number % 100;
 	int firstDigit = first2Numbers / 10;
 	int secondDigit = first2Numbers % 10;
@@ -153,12 +153,12 @@ public static long factorialOf(int number){
 	
 
 
-public static float divide(number1, number2)
+/* public static float divide(number1, number2)
 	float qoutient = number1 / number2;
-	if( number_2 == 0)
+	if( number2 == 0)
 		qoutient = 0;
 	return quotient;
-
+*/
 
 
 
@@ -167,7 +167,34 @@ public static float divide(number1, number2)
 public static long squareOf(int number){
 	int square = number * number;
 	return(square);
+}
+
+public static int getNumberOfBoxes(int numOfPeople, int numberOfSlices){
+	int numberOfBoxes = numOfPeople / numberOfSlices;
+	if (numOfPeople % numberOfSlices != 0) 
+		numberOfBoxes++;
+	return (numberOfBoxes);
+}
+
+public static int getNumberOfSlicesServed(int numberOfSlices, int numOfPeople){
+	int slicesServed = numberOfSlices * numOfPeople;
+	return slicesServed;
+
+}
+
+
+public static int getMoneySpentOnPizza(int numberOfBoxes, int pricePerBox){
+	int bill = numberOfBoxes * pricePerBox;
+	return bill;
+
+
+}
+
+public static int getLeftOverPizza(int numOfPeople, int numberOfSlices, int numberOfBoxes){
+	int leftover = (numberOfSlices * numberOfBoxes) - numOfPeople;
+	return (leftover);
 
 }
 
 }
+
