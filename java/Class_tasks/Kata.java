@@ -193,8 +193,118 @@ public static int getMoneySpentOnPizza(int numberOfBoxes, int pricePerBox){
 public static int getLeftOverPizza(int numOfPeople, int numberOfSlices, int numberOfBoxes){
 	int leftover = (numberOfSlices * numberOfBoxes) - numOfPeople;
 	return (leftover);
+}
+
+public static int findSmallest(int array[]){
+	int lastIndex = array.length - 1;
+	int smallestInt = array[0];
+
+	while( lastIndex >= 0){
+		if( array[lastIndex] < smallestInt)
+			smallestInt = array[lastIndex];
+		lastIndex--;}
+	return (smallestInt);	
+}
+
+public static double averageArray(int array[]){
+	int lastIndex = array.length - 1;
+	int sum = 0;
+	while( lastIndex >= 0 ){
+		sum += array[lastIndex];
+		lastIndex++;}
+	double average = sum / (array.length);
+	
+}
+
+public static int countOccurence(int array[], int targetNumber){
+	int occurence = 0;
+	for(int index = 0; index < array.length; index++){
+		if( targetNumber == array[index] )
+			occurence++;
+		} 
+
+	return (occurence);
+
 
 }
+
+
+public static boolean containsElement(int array[], int targetNumber){
+	for(int index = 0; index < array.length; index++){
+		if( targetNumber == array[index] )
+			return (true);
+		else
+			return (false); }
+
+
+}
+
+
+public static int getFirstElement(int array[]){
+	int firstElement = array[0];
+	if( array == array[0])
+		return (0);
+	else
+		return (firstElement);
+
+
+}
+
+
+public static int getLastElement(int array[]){
+	lastElement = array[(array.length - 1)];
+	if( array == array[0])
+		return (0);
+	else
+		return (lastElement);
+
+
+}
+
+
+public static int arrayLength(int array[]){
+	int arrayLength = 0;
+
+	for(int index = 0; index < array.length; index++){
+		arrayLength++;
+			}
+	return(arrayLength);
+		
+
+}
+
+public static int getMiddleElement(int array[]){
+	int arrayLength = array.length;
+	int middleIndex = arrayLength / 2;
+
+	if( arrayLength % 2 == 0)
+		return(new int []{array[middleIndex], array[middleIndex + 1]});
+	else
+		return(array[middleIndex]);
+	
+	
+	}
+
+public static int swapFirstAndLast(int array[]){
+	int firstNumber = array[0];
+	int lastNumber = array[array.length - 1];
+
+	array[array.length - 1] = firstNumber;
+	array[0] = lastNumber;
+
+	return(array);
+
+
+}
+
+/* public static int findNumberOfIndex(int[]){
+	int count = 0;
+	while( int
+	*/
+
+
+
+
 
 }
 
