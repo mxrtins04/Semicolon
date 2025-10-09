@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class AverageAndSumOfEvenNumbers{
+
+public static void main(String[] args){
+
+	Scanner input = new Scanner(System.in);
+
+	int[] scores = new int[10];
+	int sum = 0;
+	int count = 1;
+	int index = 0;
+
+	while(index < 10){
+		
+		System.out.print("Input a number: ");
+		int score = input.nextInt();
+		if( score >= 0 && <= 100 ){
+			scores[index] = score;
+			index++;
+			count ++;}
+		sum += score;
+		
+}
+
+
+	int average = sum / count;
+
+System.out.print("The average of the sum of the even indexes is: " + average);
+System.out.printf("%nThe sum of the even indexes is: %d", sum);
+
+
+}
+}
