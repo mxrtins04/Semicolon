@@ -1,0 +1,7 @@
+def mystery(x):
+	y = 0
+	for value in x:
+		y += value ** 2
+	return y
+Ans:- It sums up the square of the values in the list
+

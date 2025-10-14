@@ -1,0 +1,7 @@
+What" programming is preferable because it leads to simpler, more readable, and more maintainable code.
+
+-It encourages declarative style, where you specify the goal without worrying about the low-level details of how it's accomplished.
+
+-It enables better composability, reusability, and parallelism.
+
+-"What" programming is made feasible by higher-order functions, immutable data structures, abstraction layers, and functional paradigms that allow you to express computations without worrying about the step-by-step implementation

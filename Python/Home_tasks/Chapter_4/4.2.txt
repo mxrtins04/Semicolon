@@ -1,0 +1,3 @@
+What happens if you keep pushing onto a stack,
+without enough popping?
+Ans:- The stack would keep growing and growing and may overflow

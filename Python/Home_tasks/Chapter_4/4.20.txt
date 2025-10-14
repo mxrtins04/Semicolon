@@ -1,0 +1,3 @@
+Population variance and standard deviation: These are calculated using the exact mean and divide by the total number of data points (N)
+
+Sample variance and standard deviation: These use the sample mean and divide by n−1 to adjust for the fact that the sample mean tends to underestimate the spread of the data.

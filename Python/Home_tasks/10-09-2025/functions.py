@@ -53,9 +53,21 @@ class home_snack:
 		third_element = the_list[2]
 		return third_element
 
-	def get_sum_of_first_middlea_and_last_elements(the_list):
-		middle_index = (len(the_list)) - 1
-		fle_element = the_list[middle_index]
+	def get_sum_of_first_middle_and_last_elements(the_list):
+		middle_index = (len(the_list)) / 2
+		middle_element = the_list[middle_index]
+		second_middle_element = the_list[middle_element - 1]
+
+		if( len(the_list) % 2 == 0:
+			middle_element += second_middle_element
+			middle_element /= 2
+
+		sum = the_list[0] + middle_element + the_list[-1]
+
+		
+		
+		
+
 	
 	
 

@@ -1,0 +1,9 @@
+The main consequences of not including an else clause are:
+
+- You might miss handling certain cases where no condition is satisfied.
+
+- It can lead to unclear or unintended behavior (silent failure).
+
+- You might miss error handling or a fallback action.
+
+- If you expect that there are situations where no conditions will match, or if you want to catch any "leftover" cases (like defaults or errors), you should include an else block to handle such situations explicitly. If it's perfectly fine for nothing to happen in those cases, then leaving out else is okay.
