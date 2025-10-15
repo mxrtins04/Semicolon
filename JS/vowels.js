@@ -1,4 +1,4 @@
-let word = "eniifeoluwa"
+let word = "Martins"
 let a = 0;
 let e = 0;
 let i = 0;
