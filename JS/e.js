@@ -1,4 +1,4 @@
-let word = "eniifeoluwa"
+let word = "jamesjordan"
 let count = 0;
 let e_sum = 0;
 

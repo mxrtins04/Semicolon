@@ -1,4 +1,4 @@
-let word = "plate"
+let word = "johnson"
 count = 0
 while(count < word.length) {
 	let upper_case = word[count].toUpperCase();
