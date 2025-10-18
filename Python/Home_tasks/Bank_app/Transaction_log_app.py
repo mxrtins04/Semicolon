@@ -22,10 +22,10 @@ match (options):
 		account_balance = 0
 		transactions = []
 
-		amount = int(input("How much would you like to deposit? "))
+		amount = float(input("How much would you like to deposit? "))
 		deposit(account_balance, transactions, amount)
 	case 2:
-		amount = int(input("How much would you like to withdraw? "))
+		amount = float(input("How much would you like to withdraw? "))
 		account_balance = 0
 		transactions = []
 		withdraw(amount, account_balance, transactions)
@@ -39,5 +39,6 @@ match (options):
 	case 4: print("Byeeeee")
 
 	case _:
+		amount = 0
 		print("invalid input")
 		menu(account_balance, transactions, amount)

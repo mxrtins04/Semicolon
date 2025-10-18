@@ -1,7 +1,7 @@
 def menu(account_balance, transactions, amount):
 		
 	options = int(input(f"""
-			
+----------------------------------------------------------------			
 Account balance: {account_balance}
 Hi user, what would you like to do today?
 
@@ -10,16 +10,16 @@ Hi user, what would you like to do today?
 3. Show transaction history
 4. Exit
 
-input a number:
-	"""))
+----------------------------------------------------------------
+input a number: """))
 
 	match (options):
 		case 1:
-			amount = int(input("How much would you like to deposit? "))
+			amount = float(input("How much would you like to deposit? "))
 			deposit(account_balance, transactions, amount)
 		case 2:
-			amount = int(input("How much would you like to withdraw? "))
-			withdraw(account_balance, transactions, amount)
+			amount = float(input("How much would you like to withdraw? "))
+			withdraw(account_balance)
 	
 		case 3:
 			if len(transactions) == 0:
@@ -30,16 +30,20 @@ input a number:
 				menu(account_balance, transactions, amount)
 
 		case 4: print("Byeeee")
+		
+		case _: 
+			print("invalid input")
+			
 
 
 def deposit(account_balance, transactions, amount):
 	if( amount < 0 ):
-		input("This would result in you owing us money, do you still want to proceed?")
-		
-		if( input.lower() == "yes"):
+		user_input = input("This would result in you dashing us money, do you still want to proceed? ").lower
+		 
+		if( user_input == "yes"):
 			print("Thank you, we really appreciate it")
-			account_balance += amount
-		elif( input.lower() == "no" ):
+			account_balance = account_balance - amount
+		elif( user_input == "no" ):
 			print("Ok, please next time don't waste our time")
 	elif( amount > 0):
 		account_balance += amount
