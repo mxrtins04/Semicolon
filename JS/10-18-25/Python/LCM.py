@@ -8,7 +8,7 @@ while number_1 != 1 or number != 1:
 		if number_1 % multiple == 0:
 			number_1 //= multiple
 		if number_2 % multiple == 0:
-			number_2 //= multiplw
+			number_2 //= multiple
 		LCM *= multiple
 
 	else:

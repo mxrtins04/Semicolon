@@ -1,4 +1,4 @@
-def menu(account_balance, transactions, amount):
+ def menu(account_balance, transactions, amount):
 		
 	options = int(input(f"""
 ----------------------------------------------------------------			
