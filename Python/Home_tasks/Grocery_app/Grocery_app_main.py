@@ -3,7 +3,7 @@ from Grocery_app_functions import *
 groceries = []
 while(True):
 	print(show_menu())
-	choice = input("Choose Your Choice From The Menu: ")
+	choice = input("Choose an option: ")
 	match choice:
 		case "1": 
 			grocery = input("What do you want to add to your grocery list: ").lower()
