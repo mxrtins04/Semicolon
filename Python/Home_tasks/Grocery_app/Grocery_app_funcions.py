@@ -34,7 +34,7 @@ def show_all_available_items(items):
 	else: 
 		for item in items:
 			print(item)
-	return "Subscribe to get more features from Omotemmy"
+	return "Thanks"
 
 def size_of_items(items):
 	return len(items)
