@@ -19,7 +19,7 @@ while(True):
 			result = show_all_available_items(groceries)
 			print(result)
 		case "4": 
-			print("Thanks for choosing Omotemmy Grocery Manager")
+			print("Byeee")
 			break;
 		case _: 
 			print("Invalid Input, Choose from the menu below")
