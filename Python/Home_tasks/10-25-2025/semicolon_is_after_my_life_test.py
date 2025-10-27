@@ -42,3 +42,14 @@ class Test_semicolon_wants_to_end_me(unittest.TestCase):
 		expected = "The list at the second index of the tuple has only one element"
 		self.assertEqual(actual,expected)
 
+	def test_if_find_sum_of_each_element_in_list_of_list_returns_the_correct_sum(self):
+		input =  [ [2, 3, 4],  [1, 5, 7],  [4, 6, 8] ]
+		actual = find_sum_of_each_element_in_list_of_list(input)
+		expected =  [9, 13, 18]
+		self.assertEqual(actual,expected)
+
+	def test_if_find_sum_of_elements_in_corresponding_index_in_the_list_of_list_returns_correct_output(self):
+		input =  [ [2, 3, 4],  [1, 5, 7],  [4, 6, 8] ]
+		actual = find_sum_of_elements_in_corresponding_index_in_the_list_of_list(input)
+		expected =   [7, 14, 19] 
+		self.assertEqual(actual,expected)
