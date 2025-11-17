@@ -16,8 +16,6 @@ public class MorningTea{
 		}
 			
 			if( count == 1)
-			
-
 			return firstChar;
 		}
 		

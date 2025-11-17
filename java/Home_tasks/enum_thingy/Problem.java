@@ -3,13 +3,27 @@ public class Problem{
 	private String problemType;
 	private Boolean status = false;
 
-	public setProblem(String problemTypeAns, String problem){
-		ProblemType problemTypeAns= ProblemType.problemType;
+	public Problem(String problemTypeAns, String problem){
+		ProblemType problemTypeAns= ProblemType.problemTypeAns;
 		this.problemType = problemTypeAns;
 
 		this.problemName = problem;
 	}
 
-	public 
+	public void changeStatus(boolean status){
+	this.status = status;
+}
+	public String getProblemName(){
+		return problemName;
+	}
+
+	public String getProblemType(){
+		return problemType;
+	}
+
+	public boolean getProblemStatus(){
+		return status;
+	}
+	public String return 
 	
 }
