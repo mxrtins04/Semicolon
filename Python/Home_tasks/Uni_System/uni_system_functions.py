@@ -53,7 +53,7 @@ def display_student_record(student_record):
 	if not isinstance(student_record, dict):
 		raise ValueError("student_record must be a dictionary")
 	return {
-		"username": student_record.get("_username"),
+		"username": student_record.get("nw_username"),
 		"name": student_record.get("name"),
 		"age": student_record.get("age"),
 		"courses": set(student_record.get("courses", set())),

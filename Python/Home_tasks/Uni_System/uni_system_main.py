@@ -27,14 +27,14 @@ while True:
 
         try:
             age = int(age_input)
-            courses = set(course.strip() for course in courses_input.split(",") if course.strip())
+            courses = set(course.strip() for course in courses_input.split(",") )
             added = add_student_to_database(students_database, username, name, age, courses, city, zip_code)
             if added == True:
                 print(f"Student {username} added successfully!")
             else:
                 print("Username already exists or invalid input.")
         except ValueError:
-            print("Invalid age entered. Student not added.")
+            print("Invalid age entered. Student !added.")
 
     elif choice == "2":
         username = input("Enter the student's username: ")
@@ -54,7 +54,7 @@ while True:
             print("Student not found.")
 
     elif choice == "4":
-        username = input("Enter the student's username: ")
+        username = input("Enter the stuent's username: ")
         student = students_database.get(username)
         if student is not None:
             print("City:", student["address"]["city"])
@@ -70,7 +70,7 @@ while True:
             print("Student not found.")
 
     elif choice == "6":
-        username = input("Enter the student's username: ")
+        username = input("Enter the stuent's username: ")
         course = input("Enter course to add: ")
         student = students_database.get(username)
         if student is not None:
