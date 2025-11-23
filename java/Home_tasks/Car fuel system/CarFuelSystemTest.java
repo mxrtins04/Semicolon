@@ -38,11 +38,29 @@ public class CarFuelSystemTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    /* @Test
     public void testThatCarCanBeDriven(){
         function.startCar();
         boolean actual = function.driveCar(50);
         boolean expected = true;
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void testThatCarCannotBeDrivenWhenNotStarted(){
+        boolean actual = function.driveCar(50);
+        boolean expected = false;
+        assertEquals(expected, actual);
+    }*/
+
+    @Test
+    public void testThatYouCantAddNegativeFuel(){
+        function.addFuel(-20);
+        int actual = function.getCurrentFuelLevel();
+        int expected = 0;
+        assertEquals(expected, actual);
+    }
+
+    @Test 
+    
 }

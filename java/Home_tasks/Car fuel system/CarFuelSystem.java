@@ -8,6 +8,9 @@ public class CarFuelSystem {
     }
 
     public int addFuel(int fuelAmount) {
+        if (fuelAmount < 0) {
+            return currentFuelLevel;
+        }
         currentFuelLevel += fuelAmount;
         if (currentFuelLevel > maximumFuelCapacity) {
             currentFuelLevel = maximumFuelCapacity;
@@ -28,6 +31,7 @@ public class CarFuelSystem {
         this.carState = false;
         return carState;
     }   
+
 
     public void driveCar(int distance) {
         if(!carState) {
