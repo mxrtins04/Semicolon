@@ -11,8 +11,9 @@ public class MotorcycleFunctions {
 
     public void turnOffBike() {
         this.bikeState = false;
-        this.speed = 0;
-        this.gear = 1;
+        while( this.speed > 0 ){
+            brake();
+        }
     }
 
     public boolean getBikeState() {
@@ -54,6 +55,7 @@ public class MotorcycleFunctions {
 
     public void accelerate() {
         setGear();
+        if( this.bikeState == true){
         if( this.gear == 1 ){
             this.speed += 1;
         } else if (this.gear == 2) {
@@ -64,6 +66,11 @@ public class MotorcycleFunctions {
             this.speed += 4;
         }
         setGear();
+        }
+
+        else {
+            System.out.println("Switch on your bike to move... Do i have to tell you that one too? Arghh!");
+        }
 
         
     }

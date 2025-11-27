@@ -16,7 +16,7 @@ public class MotorcycleTest {
 
     @Test
     public void testThatStartBikeWorks() {
-        function.startBike(bikeState);
+        function.startBike();
         assertTrue(function.getBikeState());
     }
 
@@ -66,6 +66,7 @@ public class MotorcycleTest {
 */
     @Test 
     public void testThatAcceleratorWorks(){
+         function.startBike();
        function.accelerate();
        int speed = function.getSpeed();
          assertEquals(1, speed);
@@ -73,25 +74,32 @@ public class MotorcycleTest {
 
     @Test 
     public void testThatAcceleratorCanBeCalledMultipleTimes(){
-       function.accelerate();
-       function.accelerate();
-       function.accelerate();
-       int speed = function.getSpeed();
-         assertEquals(3, speed);
+        function.startBike();
+        function.accelerate();
+        function.accelerate();
+        function.accelerate();
+        int speed = function.getSpeed();
+        assertEquals(3, speed);
     }
 
     @Test 
     public void testThatRateOfAccelerationIncreasesWithGear(){
+        function.startBike();
         function.setSpeed(25);
         function.accelerate();
         int speed = function.getSpeed();
         assertEquals(27, speed);
-
-
         function.setSpeed(35);
         function.accelerate();
         speed = function.getSpeed();
         assertEquals(38, speed);
+    }
+
+    @Test 
+    public void testThatBikeCanOnlyAccelerateWhenOn(){
+        function.accelerate();
+        int speed = function.getSpeed();
+        assertEquals(0, speed);
     }
 
 /*    @Test 
@@ -105,6 +113,7 @@ public class MotorcycleTest {
 */
     @Test 
     public void testThatSetGearSetsGearAccordingToSpeed(){
+        function.startBike();
         function.setSpeed(19);
         function.accelerate();
         function.accelerate();
@@ -142,5 +151,13 @@ public class MotorcycleTest {
         assertEquals(0, speed);
     }
 
+    @Test 
+    public void testThatSpeedIsAlwaysZeroWhenBikeIsTurnedOff(){
+        function.startBike();
+        function.setSpeed(20);
+        function.turnOffBike();
+        int speed = function.getSpeed();
+        assertEquals(0, speed);
+    }
     
 }
