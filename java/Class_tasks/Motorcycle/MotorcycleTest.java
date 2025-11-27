@@ -32,28 +32,13 @@ public class MotorcycleTest {
         assertTrue(initialSpeed == 0);
     }
 
-    @Test 
-    public void testThatTheIncreaseGearMethodWorks() {
-        function.increaseGear();
-        int newGear = function.getGear();
-        assertTrue(newGear == 2);
-    }
-
-    @Test 
+ /*   @Test 
     public void testThatIncreaseGearMethodCanBeCalledMultipleTimes() {
         function.increaseGear();
         function.increaseGear();
         int newGear = function.getGear();
         assertTrue(newGear == 3);
-    }
-
-    @Test 
-    public void testThatIncreaseGearDoesNotExceedMaxGear(){
-        function.setGear(4);
-        function.increaseGear();
-        int newGear = function.getGear();  
-        assertTrue(newGear == 4);
-    }
+    }*/
 
 /*     @Test 
     public void testThatReduceGearWorks(){
@@ -72,13 +57,13 @@ public class MotorcycleTest {
         assertTrue(newGear == 2);
     }
 */
-    @Test 
+/*    @Test 
     public void testThatGearNeverGoesBelowOne(){
         function.reduceGear();
         int newGear = function.getGear();
         assertEquals(1, newGear);
     }
-
+*/
     @Test 
     public void testThatAcceleratorWorks(){
        function.accelerate();
@@ -93,6 +78,20 @@ public class MotorcycleTest {
        function.accelerate();
        int speed = function.getSpeed();
          assertEquals(3, speed);
+    }
+
+    @Test 
+    public void testThatRateOfAccelerationIncreasesWithGear(){
+        function.setSpeed(25);
+        function.accelerate();
+        int speed = function.getSpeed();
+        assertEquals(27, speed);
+
+
+        function.setSpeed(35);
+        function.accelerate();
+        speed = function.getSpeed();
+        assertEquals(38, speed);
     }
 
 /*    @Test 
@@ -112,5 +111,36 @@ public class MotorcycleTest {
         
         int gear = function.getGear();
         assertEquals(2, gear);
+
+        function.setSpeed(30);
+        function.accelerate();
+        gear = function.getGear();
+        assertEquals(3, gear);
     }
+
+    @Test 
+    public void testThatBrakeWorks(){
+        function.setSpeed(10);
+        function.brake();
+        int speed = function.getSpeed();
+        assertEquals(9, speed);
+    }
+
+    @Test 
+    public void testThatRateOfDecelerationIncreasesWithGear(){
+        function.setSpeed(25);
+        function.brake();
+        int speed = function.getSpeed();
+        assertEquals(23, speed);
+    }
+
+    @Test 
+    public void testThatSpeedDoesNotGoBelowZero(){
+        function.brake();
+        function.brake();
+        int speed = function.getSpeed();
+        assertEquals(0, speed);
+    }
+
+    
 }
