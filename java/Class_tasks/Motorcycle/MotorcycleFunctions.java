@@ -1,14 +1,19 @@
 public class MotorcycleFunctions {
 
-    private boolean bikeState;
+    private boolean bikeState = false;
     private int speed = 0;
     private int gear = 1;
     private int maxGear = 4;
 
-    public void startBike(boolean bikeState) {
+    public void startBike() {
         this.bikeState = true;
     }
 
+    public void turnOffBike() {
+        this.bikeState = false;
+        this.speed = 0;
+        this.gear = 1;
+    }
 
     public boolean getBikeState() {
         return this.bikeState;
