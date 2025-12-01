@@ -1,8 +1,10 @@
 public class CarFuelSystem {
-    boolean carState = false;
-    boolean movingState = false;
-    int maximumFuelCapacity = 50;
-    int currentFuelLevel = 0;
+    private boolean carState = false;
+    private boolean movingState = false;
+    private int maximumFuelCapacity = 50;
+    private int currentFuelLevel = 0;
+    private int fuelEfficiency = 10;
+
     public int getFuelTankLevel() {
         return currentFuelLevel;
     }
@@ -18,13 +20,9 @@ public class CarFuelSystem {
         return currentFuelLevel;
     }
 
-    public int getCurrentFuelLevel() {
-        return currentFuelLevel;
-    }   
 
-    public boolean startCar() {
+    public void startCar() {
         this.carState = true;
-        return carState;
     }
 
     public boolean stopCar() {
@@ -37,11 +35,13 @@ public class CarFuelSystem {
         if(!carState) {
             System.out.println("Start the car first.");
         }
-        int fuelNeeded = distance / 10;
+        int fuelNeeded = distance / fuelEfficiency;
         if (currentFuelLevel >= fuelNeeded) {
             currentFuelLevel -= fuelNeeded;
             this.movingState = true;
-        } else {
+        } 
+        
+        else {
             System.out.println("Not enough fuel to drive the desired distance.");
         }
     }

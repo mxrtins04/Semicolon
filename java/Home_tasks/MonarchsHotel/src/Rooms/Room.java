@@ -1,10 +1,21 @@
 package Rooms;
 
 public class Room {
-
+    private boolean isAvailable = true;
     private boolean isBooked = false;
     private boolean underMaintenance = false;
     private int price;
+    private String roomNumber;
+
+    public Room(String roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    public void setIsAvailable() {
+        if( isBooked || !underMaintenance) {
+            isAvailable = false;
+        }
+    }
 
     public boolean getBookedStatus() {
         return isBooked;
@@ -30,5 +41,9 @@ public class Room {
 
     public int getPrice() {
         return this.price;
+    }
+
+    public String getRoomNumber() {
+        return this.roomNumber;
     }
 }
