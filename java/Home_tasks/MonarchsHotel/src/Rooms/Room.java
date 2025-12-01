@@ -5,16 +5,20 @@ public class Room {
     private boolean isBooked = false;
     private boolean underMaintenance = false;
     private int price;
+    private String type;
     private String roomNumber;
 
     public Room(String roomNumber) {
         this.roomNumber = roomNumber;
     }
 
-    public void setIsAvailable() {
-        if( isBooked || !underMaintenance) {
-            isAvailable = false;
-        }
+
+    public boolean  getIsAvailable() {
+        return isAvailable;
+    }
+
+    public String getType(){
+        return type;
     }
 
     public boolean getBookedStatus() {
@@ -22,9 +26,13 @@ public class Room {
     }
 
     public void bookRoom() {
-        if (underMaintenance) this.isBooked = false;
+        if (underMaintenance)
+            this.isBooked = false;
 
-        else this.isBooked = true;
+        else {
+            this.isBooked = true;
+            this.isAvailable = false;
+        }
     }
 
     public boolean getMaintenanceStatus() {
@@ -33,10 +41,12 @@ public class Room {
 
     public void maintainRoom() {
         this.underMaintenance = true;
+        this.isAvailable = false;
     }
 
     public void fixRoom() {
         this.underMaintenance = false;
+        this.isAvailable = true;
     }
 
     public int getPrice() {

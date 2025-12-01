@@ -6,7 +6,13 @@ public class SingleRoom extends Room {
         super(roomNumber);
     }
     private int price = 10000;
+    private String type = "single";
+
     public int getPrice() {
         return price;
+    }
+
+    public String getType() {
+        return type;
     }
 }
