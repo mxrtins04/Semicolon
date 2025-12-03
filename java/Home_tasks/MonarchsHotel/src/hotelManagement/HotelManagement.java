@@ -36,9 +36,12 @@ public class HotelManagement {
 
 
     public void getPayment(String payment, String hotelType) {
+        String roomNumber = getAvailableRoom(hotelType);
         int paymentInt = verifyPaymentInput(payment);
-                if( isCorrectPaymentAmount(paymentInt, hotelType) == true )
-            revenue += paymentInt;
+                if( isCorrectPaymentAmount(paymentInt, hotelType) == true ) {
+                    revenue += paymentInt;
+                    bookRoom(roomNumber);
+                }
         else throw new IllegalArgumentException("incorrect amount");
 
     }
@@ -71,4 +74,21 @@ public class HotelManagement {
     }
 
 
+    public void bookRoom(String roomNumber) {
+        for( Room room : rooms ){
+            if(room.getRoomNumber().equals(roomNumber)) {
+                room.bookRoom();
+                break;
+            }
+
+        }
+    }
+
+    public Room getRoomByRoomNumber(String roomNumber) {
+        for( Room room : rooms){
+            if(room.getRoomNumber().equals(roomNumber))
+                return room;
+        }
+        return null;
+    }
 }

@@ -56,6 +56,7 @@ public class HotelManagementTest {
     @Test
     void testHotelManagementCanCollectPayments(){
         HotelManagement function = new HotelManagement();
+        String roomNumber = function.getAvailableRoom("double");
         function.getPayment("10000", "single");
         assertEquals(10000, function.getRevenue());
     }
@@ -63,49 +64,89 @@ public class HotelManagementTest {
     @Test
     void testGetPaymentOnlyCollectsNumbers(){
         HotelManagement function = new HotelManagement();
+        String roomNumber = function.getAvailableRoom("double");
         assertThrows(NumberFormatException.class, () -> function.getPayment("100e", "single"));
     }
 
     @Test
     void testAllPaymentsAreAddedTogetherTest(){
+        String roomNumber = function.getAvailableRoom("double");
         function.getPayment("10000", "single");
+        String roomNumber2 = function.getAvailableRoom("double");
         function.getPayment("20000", "single");
         assertEquals(30000, function.getRevenue());
     }
 
     @Test
     void TenKIsCollectedFromUserIfSingleRoomIsSelectedTest(){
+        String roomNumber = function.getAvailableRoom("double");
         function.getPayment("10000", "single");
         assertEquals(10000, function.getRevenue());
     }
 
     @Test
 void amountApartFrom10kIsNotAddedToRevenueIfRoomIsSingleTest(){
+        String roomNumber = function.getAvailableRoom("double");
         assertThrows(IllegalArgumentException.class, () -> function.getPayment("5000", "single"));
     }
 
     @Test
     void revenueIs20kIfAmountPaidIs20kAndRoomTypeIsDouble(){
+        String roomNumber = function.getAvailableRoom("double");
         function.getPayment("20000", "double");
         assertEquals(20000, function.getRevenue());
     }
 
     @Test
     void getPaymentThrowsErrorWhenAmountPaidIsNot20kAndRoomIsDoubleTest(){
+        String roomNumber = function.getAvailableRoom("double");
         assertThrows(IllegalArgumentException.class, () -> function.getPayment("353234", "double"));
     }
 
     @Test
     void amountPaidIsAddedToRevenueIfAmountPaidIs45kAndRoomIsSuiteTest(){
+        String roomNumber = function.getAvailableRoom("double");
         function.getPayment("45000", "suite");
         assertEquals(45000, function.getRevenue());
     }
 
     @Test
     void getPaymentRaisesErrorIfRoomIsSuiteAndPriceIsNot45k(){
+        String roomNumber = function.getAvailableRoom("double");
         assertThrows(IllegalArgumentException.class, () -> function.getPayment("10000", "suite"));
     }
 
     @Test
+    void roomStatusCanBeTurnedToBooked(){
+        String roomNumber = function.getAvailableRoom("double");
+        function.bookRoom(roomNumber);
+        Room[] rooms = function.getRooms();
+        Room bookedRoom = function.getRoomByRoomNumber(roomNumber);
+        assertEquals(true, bookedRoom.getBookedStatus());
+    }
+
+    @Test
+    void roomStatusCanBeTurnedToBookedAfterSuccessfulPayment(){
+        String roomNumber = function.getAvailableRoom("double");
+        function.getPayment("20000", "double");
+        Room[] rooms = function.getRooms();
+        Room bookedRoom = function.getRoomByRoomNumber(roomNumber);
+        assertEquals(true, bookedRoom.getBookedStatus());
+
+    }
+
+    @Test
+    void getPaymentsBooksRoomGivenByGetAvailableRoomTest(){
+        String roomNumber = function.getAvailableRoom("double");
+        Room room = function.getRoomByRoomNumber(function.getAvailableRoom("double"));
+        function.getPayment("20000", "double");
+        Room[] rooms = function.getRooms();
+        Room bookedRoom = function.getRoomByRoomNumber(roomNumber);
+        assertEquals(true, bookedRoom.getBookedStatus());
+
+    }
+
+    @Test
     void
+
 }
