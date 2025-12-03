@@ -24,4 +24,5 @@ public class Client extends Customer{
     public void setPaymentMade(int i) {
         amountPaid = i;
     }
+
 }
