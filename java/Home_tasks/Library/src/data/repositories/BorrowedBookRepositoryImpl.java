@@ -26,7 +26,6 @@ public class BorrowedBookRepositoryImpl implements BorrowedBookRepository {
 
     private void saveNew(BorrowedBook book) {
         count++;
-        book.setBookId(count);
         books.add(book);
     }
 
