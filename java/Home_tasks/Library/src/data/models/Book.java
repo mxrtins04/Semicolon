@@ -8,7 +8,15 @@ public class Book {
     private int quantity;
     private String description;
     private String isbn;
+    private Genre genre;
 
+    public Genre getGenre(){
+        return genre;
+    }
+
+    public void setGenre(Genre genre){
+        this.genre = genre;
+    }
     public String getTitle() {
         return title;
     }

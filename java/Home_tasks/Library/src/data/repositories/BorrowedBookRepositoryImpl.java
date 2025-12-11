@@ -1,14 +1,11 @@
 package data.repositories;
-
-import data.models.Book;
-import exceptions.InvalidIdException;
-
+import data.models.BorrowedBook;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookRepositoryImpl implements BookRepository {
+public class BorrowedBookRepositoryImpl implements BorrowedBookRepository {
     private int count;
-    private static List<Book> books = new ArrayList<>();
+    private List<BorrowedBook> books = new ArrayList<>();
 
     @Override
     public long count() {
@@ -16,32 +13,34 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
-    public Book save(Book book) {
-        if( isNew(book)) saveNewBook(book);
+    public BorrowedBook save(BorrowedBook book) {
+        if(isNew(book)) saveNew(book);
         else update(book);
         return book;
     }
 
-    private void update(Book book){
-        books.remove(findById(book.getId()));
+    private void update(BorrowedBook book) {
+        books.remove(findById(book.getBookId()));
         books.add(book);
     }
 
-    private void saveNewBook(Book book) {
-        book.setId(++count);
+    private void saveNew(BorrowedBook book) {
+        count++;
+        book.setBookId(count);
         books.add(book);
     }
 
-    private boolean isNew(Book book) {
-        for( Book checkBook : books){
-            if( checkBook.getId() == book.getId())
+    private boolean isNew(BorrowedBook book) {
+        for(BorrowedBook checkBook : books) {
+            if(checkBook.getBookId() == book.getBookId()) {
                 return false;
+            }
         }
         return true;
     }
 
     @Override
-    public Book findById(int id) {
+    public BorrowedBook findById(int id) {
         if(id <= 0 || id > count) return null;
         return books.get(id - 1);
     }

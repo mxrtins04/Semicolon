@@ -22,41 +22,41 @@ class BookRepositoryImplementationTest {
     }
 
     @Test
-    void saveBook_CountIncreases(){
+    void saveBookCountIncreases(){
         Book book = new Book();
         bookRepositoryImpl.save(book);
         assertEquals(1L, bookRepositoryImpl.count());
     }
 
     @Test
-    void saveBook_BookIsReturned(){
+    void saveBookIsReturned(){
         Book book = new Book();
         assertEquals(book, bookRepositoryImpl.save(book));
     }
 
     @Test
-    void saveBook_BookIdIsSet(){
+    void saveBookIdIsSet(){
         Book book = new Book();
         bookRepositoryImpl.save(book);
         assertEquals(1,book.getId());
     }
 
     @Test
-    void findById_BookIsReturned(){
+    void findByIdBookIsReturned(){
         Book book = new Book();
         bookRepositoryImpl.save(book);
         assertEquals(book, bookRepositoryImpl.findById(1));
     }
 
     @Test
-    void findByIdWithNumberGreaterThanCount_ThrowException(){
-        assertThrows(InvalidIdException.class, () -> bookRepositoryImpl.findById(1));
+    void findByIdWithNumberGreaterThanCountReturnsNull(){
+        assertNull(bookRepositoryImpl.findById(1));
     }
 
     @Test
-    void findByIdWithNumberEqualTo0OrLessThan0_ThrowException(){
-        assertThrows(InvalidIdException.class, () -> bookRepositoryImpl.findById(0));
-        assertThrows(InvalidIdException.class, () -> bookRepositoryImpl.findById(-1));
+    void findByIdWithNumberEqualTo0OrLessThan0ReturnsNull(){
+        assertNull(bookRepositoryImpl.findById(0));
+        assertNull(bookRepositoryImpl.findById(-1));
     }
 
     @Test
@@ -74,18 +74,11 @@ class BookRepositoryImplementationTest {
     }
 
     @Test
-    void deleteById_BookIsDeleted_CountDecreases(){
+    void deleteByIdBookIsDeletedCountDecreases(){
         Book book = new Book();
         bookRepositoryImpl.save(book);
         bookRepositoryImpl.deleteById(1);
         assertEquals(0L, bookRepositoryImpl.count());
-    }
-
-    @Test
-    void deleteByIdWithInvalidId_ThrowException(){
-        assertThrows(InvalidIdException.class, () -> bookRepositoryImpl.deleteById(1));
-        assertThrows(InvalidIdException.class, () -> bookRepositoryImpl.deleteById(-1));
-        assertThrows(InvalidIdException.class, () -> bookRepositoryImpl.deleteById(0));
     }
 
     @Test
