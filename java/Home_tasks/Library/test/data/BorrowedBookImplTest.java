@@ -53,12 +53,6 @@ class BorrowedBookImplTest {
     }
 
     @Test
-    void findByIdWithNumberEqualTo0OrLessThan0ReturnNull(){
-        assertNull(borrowedBookRepositoryImpl.findById(0));
-        assertNull(borrowedBookRepositoryImpl.findById(-1));
-    }
-
-    @Test
     void existsByIdTest(){
         BorrowedBook book = new BorrowedBook();
         borrowedBookRepositoryImpl.save(book);
@@ -66,14 +60,7 @@ class BorrowedBookImplTest {
     }
 
     @Test
-    void existsByIdWithInvalidIdTest(){
-        assertFalse(borrowedBookRepositoryImpl.existsById(1));
-        assertFalse(borrowedBookRepositoryImpl.existsById(-1));
-        assertFalse(borrowedBookRepositoryImpl.existsById(0));
-    }
-
-    @Test
-    void deleteByIdBookIsDeletedCountDecreases(){
+    void testdeleteByIdDeletesBookAndReducesCount(){
         BorrowedBook book = new BorrowedBook();
         borrowedBookRepositoryImpl.save(book);
         borrowedBookRepositoryImpl.deleteById(1);

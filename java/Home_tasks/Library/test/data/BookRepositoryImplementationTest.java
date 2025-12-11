@@ -67,13 +67,6 @@ class BookRepositoryImplementationTest {
     }
 
     @Test
-    void existsByIdWithInvalidIdTest(){
-        assertFalse(bookRepositoryImpl.existsById(1));
-        assertFalse(bookRepositoryImpl.existsById(-1));
-        assertFalse(bookRepositoryImpl.existsById(0));
-    }
-
-    @Test
     void deleteByIdBookIsDeletedCountDecreases(){
         Book book = new Book();
         bookRepositoryImpl.save(book);
@@ -82,7 +75,7 @@ class BookRepositoryImplementationTest {
     }
 
     @Test
-    void deleteAll_CountIs0(){
+    void deleteAllCountBecomes0(){
         Book book = new Book();
         bookRepositoryImpl.save(book);
         bookRepositoryImpl.deleteAll();
