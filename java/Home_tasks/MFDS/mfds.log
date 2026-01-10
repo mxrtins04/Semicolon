@@ -1,0 +1,6 @@
+1767850414284:help
+1767850428308:add fuel
+1767850437085:add-fuel
+1767850574709:add-fuel --1000 --petrol --74
+1767850721168:add-fuel price--1000 name--prol quantity--74
+1767850862944:add-fuel --price 323.33 --name prel --quantity 600

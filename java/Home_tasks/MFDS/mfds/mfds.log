@@ -1,0 +1,10 @@
+1767830817147:help
+1767830842431:list-fuels
+1767830850681:add-fuels
+1767830855097:add-fuel
+1767830883184:add-fuel --name Petrol --price 617.50 --quantity 1000\nadd-fuel --name Diesel --price 580.00 --quantity 800\nadd-fuel --name Kerosene --price 450.00 --quantity 600
+1767830898650:dispense-liters --fuel Petrol --liters 10
+1767830914459:add-fuel --name Petrol --price 617.50 --quantity 1000\nadd-fuel --name Diesel --price 580.00 --quantity 800\nadd-fuel --name Kerosene --price 450.00 --quantity 600
+1767830933395:add-fuel --name Petrol --price 617.50 --quantity 1000\nadd-fuel --name Diesel --price 580.00 --quantity 800
+1767830941381:add-fuel --name Petrol --price 617.50 --quantity 1000
+1767830948141:dispense-liters --fuel Petrol --liters 10
