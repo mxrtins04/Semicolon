@@ -1,0 +1,1024 @@
+-------------------------------------------------------------------------------
+Test set: NubanGenerator.NubanGeneratorTest
+-------------------------------------------------------------------------------
+Tests run: 17, Failures: 0, Errors: 17, Skipped: 0, Time elapsed: 0.597 s <<< FAILURE! -- in NubanGenerator.NubanGeneratorTest
+NubanGenerator.NubanGeneratorTest.shouldHandleCheckDigitCalculationWhenResultIs10 -- Time elapsed: 0.068 s <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+
+	at NubanGenerator.NubanGeneratorTest.<init>(NubanGeneratorTest.java:13)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+NubanGenerator.NubanGeneratorTest.shouldExtractBankCodeCorrectly -- Time elapsed: 0.014 s <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+
+	at NubanGenerator.NubanGeneratorTest.<init>(NubanGeneratorTest.java:13)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+NubanGenerator.NubanGeneratorTest.shouldGenerateNubansForDifferentBanks -- Time elapsed: 0.012 s <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+
+	at NubanGenerator.NubanGeneratorTest.<init>(NubanGeneratorTest.java:13)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+NubanGenerator.NubanGeneratorTest.shouldThrowExceptionForInvalidCheckDigitInput -- Time elapsed: 0.010 s <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+
+	at NubanGenerator.NubanGeneratorTest.<init>(NubanGeneratorTest.java:13)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+NubanGenerator.NubanGeneratorTest.shouldThrowExceptionForInvalidBankCode -- Time elapsed: 0.017 s <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+
+	at NubanGenerator.NubanGeneratorTest.<init>(NubanGeneratorTest.java:13)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+NubanGenerator.NubanGeneratorTest.shouldValidateNubanWithCheckDigit0 -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+
+	at NubanGenerator.NubanGeneratorTest.<init>(NubanGeneratorTest.java:13)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+NubanGenerator.NubanGeneratorTest.shouldGenerateNubanWithSpecificSerialNumber -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+
+	at NubanGenerator.NubanGeneratorTest.<init>(NubanGeneratorTest.java:13)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+NubanGenerator.NubanGeneratorTest.shouldCalculateCheckDigitCorrectly -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+
+	at NubanGenerator.NubanGeneratorTest.<init>(NubanGeneratorTest.java:13)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+NubanGenerator.NubanGeneratorTest.shouldThrowExceptionWhenExtractingFromInvalidNuban -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+
+	at NubanGenerator.NubanGeneratorTest.<init>(NubanGeneratorTest.java:13)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+NubanGenerator.NubanGeneratorTest.shouldThrowExceptionForInvalidSerialNumber -- Time elapsed: 0.010 s <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+
+	at NubanGenerator.NubanGeneratorTest.<init>(NubanGeneratorTest.java:13)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+NubanGenerator.NubanGeneratorTest.shouldGenerateUniqueNubans -- Time elapsed: 0.007 s <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+
+	at NubanGenerator.NubanGeneratorTest.<init>(NubanGeneratorTest.java:13)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+NubanGenerator.NubanGeneratorTest.shouldGenerateValidNubanForAccessBank -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+
+	at NubanGenerator.NubanGeneratorTest.<init>(NubanGeneratorTest.java:13)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+NubanGenerator.NubanGeneratorTest.shouldHandleEdgeCaseCheckDigitCalculation -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+
+	at NubanGenerator.NubanGeneratorTest.<init>(NubanGeneratorTest.java:13)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+NubanGenerator.NubanGeneratorTest.shouldGenerateValidNubanForGtb -- Time elapsed: 0.008 s <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+
+	at NubanGenerator.NubanGeneratorTest.<init>(NubanGeneratorTest.java:13)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+NubanGenerator.NubanGeneratorTest.shouldValidateNubanCorrectly -- Time elapsed: 0.007 s <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+
+	at NubanGenerator.NubanGeneratorTest.<init>(NubanGeneratorTest.java:13)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+NubanGenerator.NubanGeneratorTest.shouldExtractSerialNumberCorrectly -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+
+	at NubanGenerator.NubanGeneratorTest.<init>(NubanGeneratorTest.java:13)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
+NubanGenerator.NubanGeneratorTest.shouldHandleSerialNumberBoundaries -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+	NubanGenerator cannot be resolved
+
+	at NubanGenerator.NubanGeneratorTest.<init>(NubanGeneratorTest.java:13)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+
