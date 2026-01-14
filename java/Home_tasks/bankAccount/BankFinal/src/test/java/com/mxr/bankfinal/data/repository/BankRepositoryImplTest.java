@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -38,19 +37,19 @@ class BankRepositoryImplTest {
     void shouldFindByCode() {
         repository.save(testBank1);
         
-        Optional<Bank> found = repository.findByCode("044");
+        Bank found = repository.findByCode("044");
         
-        assertTrue(found.isPresent());
-        assertEquals("044", found.get().getCode());
-        assertEquals("Access Bank", found.get().getName());
+        assertNotNull(found);
+        assertEquals("044", found.getCode());
+        assertEquals("Access Bank", found.getName());
     }
 
     @Test
     @DisplayName("Should return empty when bank code not found")
     void shouldReturnEmptyWhenBankCodeNotFound() {
-        Optional<Bank> found = repository.findByCode("999");
+        Bank found = repository.findByCode("999");
         
-        assertFalse(found.isPresent());
+        assertNull(found);
     }
 
     @Test
@@ -59,21 +58,21 @@ class BankRepositoryImplTest {
         repository.save(testBank1);
         repository.save(testBank2);
         
-        Optional<Bank> accessBank = repository.findByName("access");
-        Optional<Bank> gtbBank = repository.findByName("GTB");
-        Optional<Bank> nonExistent = repository.findByName("Nonexistent");
+        Bank accessBank = repository.findByName("access");
+        Bank gtbBank = repository.findByName("GTB");
+        Bank nonExistent = repository.findByName("Nonexistent");
         
-        assertTrue(accessBank.isPresent());
-        assertFalse(gtbBank.isPresent());
-        assertFalse(nonExistent.isPresent());
+        assertNotNull(accessBank);
+        assertNull(gtbBank);
+        assertNull(nonExistent);
     }
 
     @Test
     @DisplayName("Should return empty when bank name not found")
     void shouldReturnEmptyWhenBankNameNotFound() {
-        Optional<Bank> found = repository.findByName("Nonexistent Bank");
+        Bank found = repository.findByName("Nonexistent Bank");
         
-        assertFalse(found.isPresent());
+        assertNull(found);
     }
 
     @Test
@@ -158,11 +157,11 @@ class BankRepositoryImplTest {
         repository.save(testBank1);
         repository.save(testBank2);
         
-        Optional<Bank> partialMatch = repository.findByName("Access");
-        Optional<Bank> anotherPartial = repository.findByName("Guaranty");
+        Bank partialMatch = repository.findByName("Access");
+        Bank anotherPartial = repository.findByName("Guaranty");
         
-        assertTrue(partialMatch.isPresent());
-        assertTrue(anotherPartial.isPresent());
+        assertNotNull(partialMatch);
+        assertNotNull(anotherPartial);
     }
 
     @Test
@@ -172,10 +171,10 @@ class BankRepositoryImplTest {
         repository.save(testBank1); // Access Bank
         repository.save(bank3);      // Union Bank
         
-        Optional<Bank> found = repository.findByName("Bank");
+        Bank found = repository.findByName("Bank");
         
         // Should find at least one bank with "Bank" in name
-        assertTrue(found.isPresent());
+        assertNotNull(found);
     }
 
     @Test
@@ -184,10 +183,10 @@ class BankRepositoryImplTest {
         repository.save(testBank1);
         repository.save(testBank2);
         
-        Optional<Bank> emptySearch = repository.findByName("");
+        Bank emptySearch = repository.findByName("");
         
-        // Should return empty since empty string doesn't match any bank name
-        assertFalse(emptySearch.isPresent());
+        // Should return null since empty string doesn't match any bank name
+        assertNull(emptySearch);
     }
 
 }

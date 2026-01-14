@@ -16,7 +16,9 @@ public class Cbn{
     }
 
     public void registerBank(String bankCode) {
-        bankRepository.save(new Bank(bankCode));
+        Bank bank = new Bank(bankCode);
+        bank.setDataStorage(accountRepository);
+        bankRepository.save(bank);
     }
 
     public BankCode[] getBankCodes() {

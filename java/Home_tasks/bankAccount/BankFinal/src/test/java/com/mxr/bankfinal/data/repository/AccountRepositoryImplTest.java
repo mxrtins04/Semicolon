@@ -1,6 +1,7 @@
 package com.mxr.bankfinal.data.repository;
 import com.mxr.bankfinal.data.model.Account;
 import com.mxr.bankfinal.data.repository.impl.AccountRepositoryImpl;
+import com.mxr.bankfinal.data.repository.impl.UserRepositoryImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -12,15 +13,17 @@ import static org.junit.jupiter.api.Assertions.*;
 class AccountRepositoryImplTest {
 
     private AccountRepositoryImpl repository;
+    private UserRepositoryImpl userRepository;
     private Account testAccount1;
     private Account testAccount2;
 
     @BeforeEach
     void setUp() {
         repository = new AccountRepositoryImpl();
-        testAccount1 = new Account("Jj", "john@email.com", "password123");
+        userRepository = new UserRepositoryImpl();
+        testAccount1 = new Account("Jj", "john@email.com", "password123", userRepository);
         testAccount1.setAccountNumber("1001");
-        testAccount2 = new Account("Jane Smith", "jane@email.com", "password456");
+        testAccount2 = new Account("Jane Smith", "jane@email.com", "password456", userRepository);
         testAccount2.setAccountNumber("1002");
 
     }
@@ -55,6 +58,7 @@ class AccountRepositoryImplTest {
     void shouldReturnEmptyWhenAccountNotFound() {
         String TA2AccountNumber = testAccount2.getAccountNumber();
         Account found = repository.findByAccountNumber(TA2AccountNumber);
+        assertNull(found);
     }
 
     @Test

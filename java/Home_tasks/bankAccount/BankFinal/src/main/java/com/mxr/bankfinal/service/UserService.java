@@ -4,7 +4,6 @@ import com.mxr.bankfinal.data.model.User;
 import com.mxr.bankfinal.data.repository.UserRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 public class UserService {
     private final UserRepository userRepository;
@@ -23,11 +22,11 @@ public class UserService {
         return user;
     }
 
-    public Optional<User> findByBvn(String bvn) {
+    public User findByBvn(String bvn) {
         return userRepository.findByBvn(bvn);
     }
 
-    public Optional<User> findByEmail(String email) {
+    public User findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 

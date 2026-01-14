@@ -1,8 +1,12 @@
 package com.mxr.bankfinal.service;
 
+import com.mxr.bankfinal.data.model.Bank;
 import com.mxr.bankfinal.data.model.BankCode;
 import com.mxr.bankfinal.data.model.Transaction;
+import com.mxr.bankfinal.data.repository.AccountRepository;
 import com.mxr.bankfinal.data.repository.BankRepository;
+import com.mxr.bankfinal.data.repository.impl.AccountRepositoryImpl;
+import com.mxr.bankfinal.data.repository.impl.BankRepositoryImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,15 +16,34 @@ public class CbnService {
     private final TransactionService transactionService;
     private final List<BankService> bankServices;
     private final List<String> bankCodes;
+    private final Cbn cbn;
 
     public CbnService(BankRepository bankRepository, TransactionService transactionService) {
         this.bankRepository = bankRepository;
         this.transactionService = transactionService;
         this.bankServices = new ArrayList<>();
         this.bankCodes = new ArrayList<>();
+        this.cbn = new Cbn(bankRepository, new AccountRepositoryImpl());
+    }
+
+    public void registerBank(String bankCode) {
+        if (!validateBank(bankCode)) {
+            throw new IllegalArgumentException("Invalid bank code: " + bankCode);
+        }
+        
+        if (bankRepository.exists(bankCode)) {
+            throw new IllegalArgumentException("Bank already registered: " + bankCode);
+        }
+        
+        cbn.registerBank(bankCode);
+        bankCodes.add(bankCode);
     }
 
     public void registerBankService(String bankCode, BankService bankService) {
+        if (!bankRepository.exists(bankCode)) {
+            throw new IllegalArgumentException("Bank not registered: " + bankCode);
+        }
+        
         int index = bankCodes.indexOf(bankCode);
         if (index == -1) {
             bankCodes.add(bankCode);
@@ -100,6 +123,28 @@ public class CbnService {
 
     public List<String> getAllBankCodes() {
         return new ArrayList<>(bankCodes);
+    }
+
+    public AccountRepository getBankAccountRepository(String bankCode) {
+        Bank bank = bankRepository.findByCode(bankCode);
+        if (bank == null) {
+            throw new IllegalArgumentException("Bank not found: " + bankCode);
+        }
+        
+    
+        return cbn.getBanks();
+    }
+
+    public List<Bank> getAllBanks() {
+        return bankRepository.findAll();
+    }
+
+    public Bank findBank(String bankCode) {
+        return bankRepository.findByCode(bankCode);
+    }
+
+    public BankCode[] getAvailableBankCodes() {
+        return cbn.getBankCodes();
     }
 
     private boolean isInterBankTransfer(String fromBankCode, String toBankCode) {

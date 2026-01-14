@@ -3,7 +3,6 @@ import com.mxr.bankfinal.data.model.Bank;
 import com.mxr.bankfinal.data.repository.BankRepository;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class BankRepositoryImpl implements BankRepository {
     private final List<Bank> banks = new ArrayList<>();
@@ -14,17 +13,19 @@ public class BankRepositoryImpl implements BankRepository {
     }
 
     @Override
-    public Optional<Bank> findByCode(String code) {
+    public Bank findByCode(String code) {
         return banks.stream()
                 .filter(bank -> bank.getCode().equals(code))
-                .findFirst();
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
-    public Optional<Bank> findByName(String name) {
+    public Bank findByName(String name) {
         return banks.stream()
                 .filter(bank -> bank.getName().toLowerCase().contains(name.toLowerCase()))
-                .findFirst();
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
