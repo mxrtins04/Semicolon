@@ -5,6 +5,7 @@ import com.mxr.bankfinal.data.model.User;
 import com.mxr.bankfinal.data.repository.AccountRepository;
 import com.mxr.bankfinal.data.repository.UserRepository;
 import com.mxr.bankfinal.util.NubanGenerator;
+import com.mxr.bankfinal.data.repository.TransactionRepository;
 
 import java.util.List;
 
@@ -12,32 +13,15 @@ public class AccountService {
     private final AccountRepository accountRepository;
     private final UserRepository userRepository;
     private final String bankCode;
+    private final TransactionRepository transactionRepository;
 
-    public AccountService(String bankCode, AccountRepository accountRepository, UserRepository userRepository) {
+    public AccountService(String bankCode, AccountRepository accountRepository, UserRepository userRepository, TransactionRepository transactionRepository) {
         this.bankCode = bankCode;
         this.accountRepository = accountRepository;
         this.userRepository = userRepository;
+        this.transactionRepository = transactionRepository;
     }
 
-    public Account createAccount(String name, String email, String password) {
-        
-        User user = userRepository.findByEmail(email);
-        if (user == null) {
-            throw new IllegalArgumentException("User not found with email: " + email);
-        }
-
-        // Generate unique account number
-        String accountNumber = generateUniqueAccountNumber();
-        
-        // Create account
-        Account account = new Account(name, email, password, userRepository);
-        account.setAccountNumber(accountNumber);
-        
-        // Save account
-        accountRepository.save(account);
-        
-        return account;
-    }
 
     public Account findAccount(String accountNumber) {
         Account account = accountRepository.findByAccountNumber(accountNumber);
@@ -50,20 +34,17 @@ public class AccountService {
     public Account updateAccount(String accountNumber, String name, String email) {
         Account account = findAccount(accountNumber);
         
-        // Update fields if provided
         if (name != null && !name.trim().isEmpty()) {
-            // Note: Account doesn't have setName method, so this would need to be added
-            // account.setName(name);
+            account.setName(name);
         }
         
         if (email != null && !email.trim().isEmpty() && !email.equals(account.getEmail())) {
-            // Validate new email exists in user repository
             User user = userRepository.findByEmail(email);
             if (user == null) {
                 throw new IllegalArgumentException("User not found with new email: " + email);
             }
-            // Note: Account doesn't have setEmail method, so this would need to be added
-            // account.setEmail(email);
+            account.setEmail(email);
+            account.setUser(user);
         }
         
         return account;
@@ -74,14 +55,14 @@ public class AccountService {
         accountRepository.delete(accountNumber);
     }
 
-    public int getAccountBalance(String accountNumber) {
+    public double getAccountBalance(String accountNumber) {
         Account account = findAccount(accountNumber);
         return account.getBalance();
     }
 
-    public List<Account> getAccountTransactions(String accountNumber) {
-        findAccount(accountNumber); // Validate account exists
-        return accountRepository.findByEmail(accountNumber); // This might need adjustment based on requirements
+    public List<com.mxr.bankfinal.data.model.Transaction> getAccountTransactions(String accountNumber) {
+        findAccount(accountNumber); 
+        return transactionRepository.findByAccountNumber(accountNumber); 
     }
 
     public void linkToUser(String accountNumber, String userEmail) {
@@ -92,8 +73,8 @@ public class AccountService {
             throw new IllegalArgumentException("User not found with email: " + userEmail);
         }
         
-        // Note: Account doesn't have setUser method, so this would need to be added
-        // account.setUser(user);
+        account.setUser(user);
+        account.setEmail(userEmail);
     }
 
     public boolean validateAccount(String accountNumber) {
@@ -117,22 +98,7 @@ public class AccountService {
         return accountRepository.findByEmail(email);
     }
 
-    private String generateUniqueAccountNumber() {
-        String accountNumber;
-        int attempts = 0;
-        final int MAX_ATTEMPTS = 100;
-        
-        do {
-            accountNumber = NubanGenerator.generateNuban(bankCode);
-            attempts++;
-            
-            if (attempts > MAX_ATTEMPTS) {
-                throw new RuntimeException("Failed to generate unique account number after " + MAX_ATTEMPTS + " attempts");
-            }
-        } while (accountRepository.exists(accountNumber));
-        
-        return accountNumber;
-    }
+
 
     public String getBankCode() {
         return bankCode;

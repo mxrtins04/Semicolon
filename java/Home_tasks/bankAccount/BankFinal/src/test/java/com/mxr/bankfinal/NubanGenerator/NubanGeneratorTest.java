@@ -1,12 +1,10 @@
 package com.mxr.bankfinal.NubanGenerator;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
 
 import com.mxr.bankfinal.util.NubanGenerator;
 
-import org.junit.jupiter.api.DisplayName;
-
-import static com.mxr.bankfinal.util.NubanGenerator.*;
 import static org.junit.jupiter.api.Assertions.*;
 class NubanGeneratorTest {
 
@@ -74,18 +72,21 @@ class NubanGeneratorTest {
     }
 
     @Test
+    @DisplayName("Should throw exception for invalid bank code")
     void shouldThrowExceptionForInvalidBankCode() {
         assertThrows(IllegalArgumentException.class, () -> NubanGenerator.generateNuban(null));
         assertThrows(IllegalArgumentException.class, () -> NubanGenerator.generateNuban(""));
     }
 
     @Test
+    @DisplayName("Should throw exception for invalid serial number")
     void shouldThrowExceptionForInvalidSerialNumber() {
         assertThrows(IllegalArgumentException.class, () -> NubanGenerator.generateNubanWithSerial("044", null));
         assertThrows(IllegalArgumentException.class, () -> NubanGenerator.generateNubanWithSerial("044", ""));
     }
 
     @Test
+    @DisplayName("Should throw exception for invalid check digit input")
     void shouldThrowExceptionForInvalidCheckDigitInput() {
         assertThrows(IllegalArgumentException.class, () -> NubanGenerator.calculateCheckDigit(null));
         assertThrows(IllegalArgumentException.class, () -> NubanGenerator.calculateCheckDigit(""));

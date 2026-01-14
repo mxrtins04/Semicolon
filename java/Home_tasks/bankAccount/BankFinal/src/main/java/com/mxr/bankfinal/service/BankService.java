@@ -49,7 +49,7 @@ public class BankService {
             throw new IllegalArgumentException("Account not found: " + accountNumber);
         }
 
-        account.deposit((int) amount);
+        account.deposit(amount);
         
         Transaction transaction = transactionService.createDeposit(accountNumber, amount, "Deposit");
         transactionService.completeTransaction(transaction.getTransactionId());
@@ -69,7 +69,7 @@ public class BankService {
             throw new IllegalArgumentException("Insufficient funds");
         }
         
-        account.withdraw((int) amount);
+        account.withdraw(amount);
         
         Transaction transaction = transactionService.createWithdrawal(accountNumber, amount, "Withdrawal");
         transactionService.completeTransaction(transaction.getTransactionId());

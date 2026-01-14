@@ -1,5 +1,6 @@
 package com.mxr.bankfinal.data.model;
 import java.util.ArrayList; 
+import com.mxr.bankfinal.util.BVNManager;
 
 public class User {
     private String name;
@@ -14,8 +15,7 @@ public class User {
     }
 
     private String generateBvn(){
-        String bvn = "3";
-        return bvn;
+        return BVNManager.generateUniqueBvn();
     }
 
     public String getBvn(){

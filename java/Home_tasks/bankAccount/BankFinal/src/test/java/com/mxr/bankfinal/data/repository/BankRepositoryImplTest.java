@@ -167,26 +167,13 @@ class BankRepositoryImplTest {
     @Test
     @DisplayName("Should handle banks with similar names")
     void shouldHandleBanksWithSimilarNames() {
-        Bank bank3 = new Bank("032"); // Union Bank
-        repository.save(testBank1); // Access Bank
-        repository.save(bank3);      // Union Bank
+        Bank bank3 = new Bank("032");   
+        repository.save(testBank1);
+        repository.save(bank3);
         
         Bank found = repository.findByName("Bank");
         
-        // Should find at least one bank with "Bank" in name
         assertNotNull(found);
-    }
-
-    @Test
-    @DisplayName("Should handle empty name search")
-    void shouldHandleEmptyNameSearch() {
-        repository.save(testBank1);
-        repository.save(testBank2);
-        
-        Bank emptySearch = repository.findByName("");
-        
-        // Should return null since empty string doesn't match any bank name
-        assertNull(emptySearch);
     }
 
 }

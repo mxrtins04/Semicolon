@@ -12,6 +12,10 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    public com.mxr.bankfinal.data.repository.UserRepository getUserRepository() {
+        return userRepository;
+    }
+
     public User createUser(String name, String email) {
         if (emailExists(email)) {
             throw new IllegalArgumentException("Email already exists: " + email);

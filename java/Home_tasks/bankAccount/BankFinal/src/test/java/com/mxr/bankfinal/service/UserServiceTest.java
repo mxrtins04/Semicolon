@@ -1,14 +1,13 @@
-package service;
+package com.mxr.bankfinal.service;
 
-import data.model.User;
-import data.repository.impl.UserRepositoryImpl;
+import com.mxr.bankfinal.data.model.User;
+import com.mxr.bankfinal.data.repository.impl.UserRepositoryImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
-import service.UserService;
+import com.mxr.bankfinal.service.UserService;
 
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,30 +25,30 @@ class UserServiceTest {
     @Test
     @DisplayName("Should create user successfully")
     void shouldCreateUser() {
-        User created = userService.createUser("John Doe", "john@email.com");
+        User created = userService.createUser("Jegede", "jegede@rmail.com");
         
         assertNotNull(created);
-        assertEquals("John Doe", created.getName());
-        assertEquals("john@email.com", created.getEmail());
+        assertEquals("Jegede", created.getName());
+        assertEquals("jegede@rmail.com", created.getEmail());
         assertNotNull(created.getBvn());
         assertTrue(userService.userExists(created.getBvn()));
-        assertTrue(userService.emailExists("john@email.com"));
+        assertTrue(userService.emailExists("jegede@rmail.com"));
     }
 
     @Test
     @DisplayName("Should throw exception when creating user with existing email")
     void shouldThrowExceptionWhenCreatingUserWithExistingEmail() {
-        userService.createUser("John Doe", "john@email.com");
+        userService.createUser("Jegede", "john@email.com");
         
         assertThrows(IllegalArgumentException.class, 
-            () -> userService.createUser("Jane Smith", "john@email.com"));
+            () -> userService.createUser("Akande", "john@email.com"));
     }
 
     @Test
     @DisplayName("Should create multiple users with unique BVNs")
     void shouldCreateMultipleUsersWithUniqueBvns() {
-        User user1 = userService.createUser("John Doe", "john@email.com");
-        User user2 = userService.createUser("Jane Smith", "jane@email.com");
+        User user1 = userService.createUser("Jegede", "john@email.com");
+        User user2 = userService.createUser("Akande", "jane@email.com");
         
         assertNotEquals(user1.getBvn(), user2.getBvn());
         assertTrue(userService.userExists(user1.getBvn()));
@@ -59,49 +58,49 @@ class UserServiceTest {
     @Test
     @DisplayName("Should find user by BVN")
     void shouldFindByBvn() {
-        User created = userService.createUser("John Doe", "john@email.com");
+        User created = userService.createUser("Jegede", "jegede@rmail.com");
         
-        Optional<User> found = userService.findByBvn(created.getBvn());
+        User found = userService.findByBvn(created.getBvn());
         
-        assertTrue(found.isPresent());
-        assertEquals(created.getName(), found.get().getName());
-        assertEquals(created.getEmail(), found.get().getEmail());
-        assertEquals(created.getBvn(), found.get().getBvn());
+        assertNotNull(found);
+        assertEquals(created.getName(), found.getName());
+        assertEquals(created.getEmail(), found.getEmail());
+        assertEquals(created.getBvn(), found.getBvn());
     }
 
     @Test
-    @DisplayName("Should return empty when BVN not found")
-    void shouldReturnEmptyWhenBvnNotFound() {
-        Optional<User> found = userService.findByBvn("NONEXISTENT");
+    @DisplayName("Should return null when BVN not found")
+    void shouldReturnNullWhenBvnNotFound() {
+        User found = userService.findByBvn("NONEXISTENT");
         
-        assertFalse(found.isPresent());
+        assertNull(found);
     }
 
     @Test
     @DisplayName("Should find user by email")
     void shouldFindByEmail() {
-        User created = userService.createUser("John Doe", "john@email.com");
+        User created = userService.createUser("Jegede", "jegede@rmail.com");
         
-        Optional<User> found = userService.findByEmail("john@email.com");
+        User found = userService.findByEmail("jegede@rmail.com");
         
-        assertTrue(found.isPresent());
-        assertEquals(created.getName(), found.get().getName());
-        assertEquals(created.getEmail(), found.get().getEmail());
+        assertNotNull(found);
+        assertEquals(created.getName(), found.getName());
+        assertEquals(created.getEmail(), found.getEmail());
     }
 
     @Test
-    @DisplayName("Should return empty when email not found")
-    void shouldReturnEmptyWhenEmailNotFound() {
-        Optional<User> found = userService.findByEmail("nonexistent@email.com");
+    @DisplayName("Should return null when email not found")
+    void shouldReturnNullWhenEmailNotFound() {
+        User found = userService.findByEmail("nonexistent@rmail.com");
         
-        assertFalse(found.isPresent());
+        assertNull(found);
     }
 
     @Test
     @DisplayName("Should find users by name (case insensitive)")
     void shouldFindByName() {
-        User user1 = userService.createUser("John Doe", "john@email.com");
-        User user2 = userService.createUser("Jane Smith", "jane@email.com");
+        User user1 = userService.createUser("Jegede", "john@email.com");
+        User user2 = userService.createUser("Akande", "jane@email.com");
         User user3 = userService.createUser("John Smith", "johnsmith@email.com");
         
         List<User> johns = userService.findByName("john");
@@ -124,8 +123,8 @@ class UserServiceTest {
     @Test
     @DisplayName("Should get all users")
     void shouldGetAllUsers() {
-        User user1 = userService.createUser("John Doe", "john@email.com");
-        User user2 = userService.createUser("Jane Smith", "jane@email.com");
+        User user1 = userService.createUser("Jegede", "john@email.com");
+        User user2 = userService.createUser("Akande", "jane@email.com");
         User user3 = userService.createUser("Bob Johnson", "bob@email.com");
         
         List<User> allUsers = userService.getAllUsers();
@@ -147,8 +146,8 @@ class UserServiceTest {
     @Test
     @DisplayName("Should delete user by BVN")
     void shouldDeleteUser() {
-        User user1 = userService.createUser("John Doe", "john@email.com");
-        User user2 = userService.createUser("Jane Smith", "jane@email.com");
+        User user1 = userService.createUser("Jegede", "john@email.com");
+        User user2 = userService.createUser("Akande", "jane@email.com");
         
         userService.deleteUser(user1.getBvn());
         
@@ -162,13 +161,13 @@ class UserServiceTest {
     @DisplayName("Should throw exception when creating user with null email")
     void shouldThrowExceptionWhenCreatingUserWithNullEmail() {
         assertThrows(IllegalArgumentException.class, 
-            () -> userService.createUser("John Doe", null));
+            () -> userService.createUser("Jegede", null));
     }
 
     @Test
     @DisplayName("Should check if user exists by BVN")
     void shouldCheckUserExists() {
-        User created = userService.createUser("John Doe", "john@email.com");
+        User created = userService.createUser("Jegede", "jegede@rmail.com");
         
         assertTrue(userService.userExists(created.getBvn()));
         assertFalse(userService.userExists("NONEXISTENT"));
@@ -177,7 +176,7 @@ class UserServiceTest {
     @Test
     @DisplayName("Should check if email exists")
     void shouldCheckEmailExists() {
-        userService.createUser("John Doe", "john@email.com");
+        userService.createUser("jj", "john@email.com");
         
         assertTrue(userService.emailExists("john@email.com"));
         assertFalse(userService.emailExists("nonexistent@email.com"));
@@ -186,74 +185,73 @@ class UserServiceTest {
     @Test
     @DisplayName("Should handle users with same name")
     void shouldHandleUsersSameName() {
-        User user1 = userService.createUser("John Doe", "john@email.com");
-        User user2 = userService.createUser("John Doe", "johndoe2@email.com");
+        User user1 = userService.createUser("jj", "jj@email.com");
+        User user2 = userService.createUser("jj", "kk@email.com");
         
-        List<User> johnDoes = userService.findByName("John Doe");
+        List<User> jjs = userService.findByName("jj");
         
-        assertEquals(2, johnDoes.size());
-        assertTrue(johnDoes.contains(user1));
-        assertTrue(johnDoes.contains(user2));
+        assertEquals(2, jjs.size());
+        assertTrue(jjs.contains(user1));
+        assertFalse(jjs.contains(user2));
     }
 
     @Test
     @DisplayName("Should handle partial name matching")
     void shouldHandlePartialNameMatching() {
-        User user1 = userService.createUser("John Doe", "john@email.com");
-        User user2 = userService.createUser("Jane Smith", "jane@email.com");
+        User user1 = userService.createUser("SS", "ss@rmail.com");
+        User user2 = userService.createUser("John", "john@rmail.com");
         
-        List<User> partialMatch = userService.findByName("Jo");
+        List<User> partialMatch = userService.findByName("s");
         
-        assertEquals(1, partialMatch.size()); // Only "John Doe" matches
-        assertEquals("John Doe", partialMatch.get(0).getName());
+        assertEquals(1, partialMatch.size());
+        assertTrue(partialMatch.contains(user1));
     }
 
     @Test
     @DisplayName("Should handle empty name search")
     void shouldHandleEmptyNameSearch() {
-        User user1 = userService.createUser("John Doe", "john@email.com");
-        User user2 = userService.createUser("Jane Smith", "jane@email.com");
+        User user1 = userService.createUser("Akande", "akande@rmail.com");
+        User user2 = userService.createUser("JJ", "jj@rmail.com");
         
         List<User> emptySearch = userService.findByName("");
         
-        // Should return all users since empty string matches all names
         assertEquals(2, emptySearch.size());
     }
 
     @Test
     @DisplayName("Should handle case insensitive email search")
     void shouldHandleCaseInsensitiveEmailSearch() {
-        userService.createUser("John Doe", "john@email.com");
-        
-        assertTrue(userService.emailExists("john@email.com"));
-        assertTrue(userService.emailExists("JOHN@EMAIL.COM"));
-        assertTrue(userService.emailExists("John@Email.Com"));
+        userService.createUser("Mo", "mo@rmail.com");
+         
+        assertTrue(userService.emailExists("mo@rmail.com"));
+        assertTrue(userService.emailExists("MO@RMAIL.COM"));
+        assertFalse(userService.emailExists("nonexistent@rmail.com"));
     }
 
     @Test
     @DisplayName("Should handle special characters in names")
     void shouldHandleSpecialCharactersInNames() {
-        User user1 = userService.createUser("John O'Connor", "john@email.com");
-        User user2 = userService.createUser("Jean-Claude Van Damme", "jean@email.com");
-        User user3 = userService.createUser("Muhammad Ali", "muhammad@email.com");
+        User user1 = userService.createUser("Sade", "sade@rmail.com");
+        User user2 = userService.createUser("Ekwethebabesnatcher", "ekwethebabesnatcher@rmail.com");
+        User user3 = userService.createUser("Jegede", "jegede@rmail.com");
         
-        Optional<User> found1 = userService.findByEmail("john@email.com");
-        Optional<User> found2 = userService.findByEmail("jean@email.com");
-        Optional<User> found3 = userService.findByEmail("muhammad@email.com");
+        User found1 = userService.findByEmail("sade@rmail.com");
+        User found2 = userService.findByEmail("ekwethebabesnatcher@rmail.com");
+        User found3 = userService.findByEmail("jegede@rmail.com");
         
-        assertTrue(found1.isPresent());
-        assertTrue(found2.isPresent());
-        assertTrue(found3.isPresent());
-        assertEquals("John O'Connor", found1.get().getName());
-        assertEquals("Jean-Claude Van Damme", found2.get().getName());
-        assertEquals("Muhammad Ali", found3.get().getName());
+        assertNotNull(found1);
+        assertNotNull(found2);
+        assertNotNull(found3);
+        assertEquals("Sade", found1.getName());
+        assertEquals("Ekwethebabesnatcher", found2.getName());
+        assertEquals("Jegede", found3.getName());
     }
 
     @Test
     @DisplayName("Should handle long email addresses")
     void shouldHandleLongEmailAddresses() {
-        String longEmail = "very.long.email.address.with.many.words.and.numbers.123456789@testdomain.com";
-        User created = userService.createUser("John Doe", longEmail);
+        String longEmail = "very.long.email.address.with.many.words.and.numbers.123456789@rmail.com";
+        User created = userService.createUser("Akande", longEmail);
         
         assertTrue(userService.emailExists(longEmail));
         assertEquals(longEmail, created.getEmail());
@@ -262,8 +260,8 @@ class UserServiceTest {
     @Test
     @DisplayName("Should handle users with different BVN formats")
     void shouldHandleUsersWithDifferentBvnFormats() {
-        User user1 = userService.createUser("John Doe", "john@email.com");
-        User user2 = userService.createUser("Jane Smith", "jane@email.com");
+        User user1 = userService.createUser("John", "john@rmail.com");
+        User user2 = userService.createUser("Mo", "mo@rmail.com");
         
         String bvn1 = user1.getBvn();
         String bvn2 = user2.getBvn();

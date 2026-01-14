@@ -7,6 +7,9 @@ import com.mxr.bankfinal.data.repository.impl.TransactionRepositoryImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import com.mxr.bankfinal.data.repository.impl.AccountRepositoryImpl;
+import com.mxr.bankfinal.service.ReceiptService;
+
 
 import java.util.List;
 
@@ -19,112 +22,117 @@ class CbnServiceTest {
     private BankService bankService1;
     private BankService bankService2;
     private TransactionRepositoryImpl transactionRepository;
+    private ReceiptService receiptService;
+    private AccountRepositoryImpl accountRepository;
+    private String acc1;
+    private String acc2;
+    private String acc3;
+    private String acc4;
 
     @BeforeEach
     void setUp() {
         transactionRepository = new TransactionRepositoryImpl();
-        transactionService = new TransactionService(transactionRepository);
+        accountRepository = new AccountRepositoryImpl();
+        receiptService = new ReceiptService(accountRepository);
+        transactionService = new TransactionService(transactionRepository, receiptService, accountRepository);
         cbnService = new CbnService(new BankRepositoryImpl(), transactionService);
         
-        bankService1 = new BankService("044", new data.repository.impl.AccountRepositoryImpl(), transactionService);
-        bankService2 = new BankService("058", new data.repository.impl.AccountRepositoryImpl(), transactionService);
+        bankService1 = new BankService("044", accountRepository, transactionService);
+        bankService2 = new BankService("058", accountRepository, transactionService);
+        
+        cbnService.registerBank("044");
+        cbnService.registerBank("058");
         
         cbnService.registerBankService("044", bankService1);
         cbnService.registerBankService("058", bankService2);
         
-        bankService1.createAccount("John Doe", "john@email.com", "password123");
-        bankService1.createAccount("Jane Smith", "jane@email.com", "password456");
-        bankService2.createAccount("Bob Johnson", "bob@email.com", "password789");
-        bankService2.createAccount("Alice Brown", "alice@email.com", "password012");
+        acc1 = bankService1.createAccount("Jegede", "john@email.com", "password123").getAccountNumber();
+        acc2 = bankService1.createAccount("Akande", "jane@email.com", "password456").getAccountNumber();
+        acc3 = bankService2.createAccount("Bob Johnson", "bob@email.com", "password789").getAccountNumber();
+        acc4 = bankService2.createAccount("Alice Brown", "alice@email.com", "password012").getAccountNumber();
         
-        bankService1.deposit("1000000001", 1000.0);
-        bankService2.deposit("2000000001", 2000.0);
-
-        String acc1 = "1000000001";
-        String acc2 = "1000000002";
-        String acc3 = "2000000001";
-        String acc4 = "2000000002";
-        String invalidAcc = "9999999999";
+        bankService1.deposit(acc1, 1000.0);
+        bankService2.deposit(acc3, 2000.0);
     }
 
     @Test
     @DisplayName("Should perform intra-bank transfer successfully")
     void shouldPerformIntraBankTransfer() {
-        double initialBalance1 = bankService1.getBalance("1000000001");
-        double initialBalance2 = bankService1.getBalance("1000000002");
+        double initialBalance1 = bankService1.getBalance(acc1);
+        double initialBalance2 = bankService1.getBalance(acc2);
         
-        Transaction result = cbnService.transfer("044", "1000000001", "044", "1000000002", 300.0, "Test transfer");
+        Transaction result = cbnService.transfer("044", acc1, "044", acc2, 300.0, "Test transfer");
         
         assertNotNull(result);
         assertEquals(TransactionType.TRANSFER, result.getType());
-        assertEquals("1000000001", result.getFromAccount());
-        assertEquals("1000000002", result.getToAccount());
+        assertEquals(acc1, result.getFromAccount());
+        assertEquals(acc2, result.getToAccount());
         assertEquals(300.0, result.getAmount());
         assertEquals(TransactionStatus.COMPLETED, result.getStatus());
         
-        assertEquals(initialBalance1 - 300.0, bankService1.getBalance("1000000001"));
-        assertEquals(initialBalance2 + 300.0, bankService1.getBalance("1000000002"));
+        assertEquals(initialBalance1 - 300.0, bankService1.getBalance(acc1));
+        assertEquals(initialBalance2 + 300.0, bankService1.getBalance(acc2));
     }
 
     @Test
     @DisplayName("Should perform inter-bank transfer successfully")
     void shouldPerformInterBankTransfer() {
-        double initialBalance1 = bankService1.getBalance("1000000001");
-        double initialBalance2 = bankService2.getBalance("2000000001");
+        double initialBalance1 = bankService1.getBalance(acc1);
+        double initialBalance2 = bankService2.getBalance(acc3);
         
-        Transaction result = cbnService.transfer("044", "1000000001", "058", "2000000001", 500.0, "Inter-bank transfer");
+        Transaction result = cbnService.transfer("044", acc1, "058", acc3, 500.0, "Inter-bank transfer");
         
         assertNotNull(result);
         assertEquals(TransactionType.TRANSFER, result.getType());
-        assertEquals("1000000001", result.getFromAccount());
-        assertEquals("2000000001", result.getToAccount());
+        assertEquals(acc1, result.getFromAccount());
+        assertEquals(acc3, result.getToAccount());
         assertEquals(500.0, result.getAmount());
         assertEquals(TransactionStatus.COMPLETED, result.getStatus());
         
-        assertEquals(initialBalance1 - 500.0, bankService1.getBalance("1000000001"));
-        assertEquals(initialBalance2 + 500.0, bankService2.getBalance("2000000001"));
+        assertEquals(initialBalance1 - 500.0, bankService1.getBalance(acc1));
+        assertEquals(initialBalance2 + 500.0, bankService2.getBalance(acc3));
     }
 
     @Test
     @DisplayName("Should throw exception for invalid from bank code")
     void shouldThrowExceptionForInvalidFromBankCode() {
         assertThrows(IllegalArgumentException.class, 
-            () -> cbnService.transfer("999", "1000000001", "044", "1000000002", 300.0, "Test transfer"));
+            () -> cbnService.transfer("999", acc1, "044", acc2, 300.0, "Test transfer"));
     }
 
     @Test
     @DisplayName("Should throw exception for invalid to bank code")
     void shouldThrowExceptionForInvalidToBankCode() {
         assertThrows(IllegalArgumentException.class, 
-            () -> cbnService.transfer("044", "1000000001", "999", "1000000002", 300.0, "Test transfer"));
+            () -> cbnService.transfer("044", acc1, "999", acc2, 300.0, "Test transfer"));
     }
 
     @Test
     @DisplayName("Should throw exception for non-existent from account")
     void shouldThrowExceptionForNonExistentFromAccount() {
         assertThrows(IllegalArgumentException.class, 
-            () -> cbnService.transfer("044", "9999999999", "044", "1000000002", 300.0, "Test transfer"));
+            () -> cbnService.transfer("044", "9999999999", "044", acc2, 300.0, "Test transfer"));
     }
 
     @Test
     @DisplayName("Should throw exception for non-existent to account")
     void shouldThrowExceptionForNonExistentToAccount() {
         assertThrows(IllegalArgumentException.class, 
-            () -> cbnService.transfer("044", "1000000001", "058", "9999999999", 300.0, "Test transfer"));
+            () -> cbnService.transfer("044", acc1, "058", "9999999999", 300.0, "Test transfer"));
     }
 
     @Test
     @DisplayName("Should throw exception for unregistered bank service")
     void shouldThrowExceptionForUnregisteredBankService() {
         assertThrows(IllegalArgumentException.class, 
-            () -> cbnService.transfer("032", "1000000001", "044", "1000000002", 300.0, "Test transfer"));
+            () -> cbnService.transfer("032", acc1, "044", acc2, 300.0, "Test transfer"));
     }
 
     @Test
     @DisplayName("Should throw exception for insufficient funds")
     void shouldThrowExceptionForInsufficientFunds() {
         assertThrows(IllegalArgumentException.class, 
-            () -> cbnService.transfer("044", "1000000001", "044", "1000000002", 2000.0, "Test transfer"));
+            () -> cbnService.transfer("044", acc1, "044", acc2, 2000.0, "Test transfer"));
     }
 
     @Test
@@ -140,11 +148,11 @@ class CbnServiceTest {
     @Test
     @DisplayName("Should validate accounts correctly")
     void shouldValidateAccounts() {
-        assertTrue(cbnService.validateAccount("044", "1000000001"));
-        assertTrue(cbnService.validateAccount("044", "1000000002"));
-        assertTrue(cbnService.validateAccount("058", "2000000001"));
+        assertTrue(cbnService.validateAccount("044", acc1));
+        assertTrue(cbnService.validateAccount("044", acc2));
+        assertTrue(cbnService.validateAccount("058", acc3));
         assertFalse(cbnService.validateAccount("044", "9999999999"));
-        assertFalse(cbnService.validateAccount("999", "1000000001"));
+        assertFalse(cbnService.validateAccount("999", acc1));
     }
 
     @Test
@@ -172,10 +180,6 @@ class CbnServiceTest {
     @Test
     @DisplayName("Should handle multiple transfers")
     void shouldHandleMultipleTransfers() {
-        String acc1 = "1000000001";
-        String acc2 = "1000000002";
-        String acc3 = "2000000001";
-        
         double initialBalance1 = bankService1.getBalance(acc1);
         double initialBalance2 = bankService1.getBalance(acc2);
         double initialBalance3 = bankService2.getBalance(acc3);
@@ -194,9 +198,6 @@ class CbnServiceTest {
     @Test
     @DisplayName("Should handle zero amount transfer")
     void shouldHandleZeroAmountTransfer() {
-        String acc1 = "1000000001";
-        String acc2 = "1000000002";
-        
         double initialBalance1 = bankService1.getBalance(acc1);
         double initialBalance2 = bankService1.getBalance(acc2);
         

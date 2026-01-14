@@ -2,20 +2,20 @@ package com.mxr.bankfinal.data.model;
 
 import com.mxr.bankfinal.data.repository.UserRepository;
 
+
 public class Account {
     private User user;
-    private int balance;
+    private double balance;
     private String name;
     private String password;
     private String email;
     private String accountNumber;
-    private final UserRepository userRepository;
+    private UserRepository userRepository;
 
-    public Account(String name, String email,String password, UserRepository userRepository) {
+    public Account(String name, String email,String password) {
         this.name = name;
         this.password = password;
         this.email = email;
-        this.userRepository = userRepository;
     }
 
     public void setAccountNumber(String accountNumber){
@@ -26,11 +26,11 @@ public class Account {
         return accountNumber;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public int deposit(int amount) {
+    public double deposit(double amount) {
         if (amount < 0) throw new IllegalArgumentException("Invalid Amount");
         balance += amount;
         return balance;
@@ -43,7 +43,7 @@ public class Account {
         return user.getBvn();
     }
 
-    public int withdraw(int amount) {
+    public double withdraw(double amount) {
         if (amount > balance) throw new IllegalArgumentException("insufficient funds");
         else if (amount < 0) throw new IllegalArgumentException("Invalid Amount");
         return balance = balance - amount;
@@ -54,7 +54,23 @@ public class Account {
         return email;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

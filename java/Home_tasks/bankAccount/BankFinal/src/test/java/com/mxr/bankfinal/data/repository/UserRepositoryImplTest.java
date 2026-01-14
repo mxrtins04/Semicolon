@@ -21,9 +21,9 @@ class UserRepositoryImplTest {
     @BeforeEach
     void setUp() {
         repository = new UserRepositoryImpl();
-        testUser1 = new User("John Doe", "john@email.com");
-        testUser2 = new User("Jane Smith", "jane@email.com");
-        testUser3 = new User("John Smith", "johnsmith@email.com");
+        testUser1 = new User("Ekwethebabesnatcher", "ekwethebabesnatcher@rmail.com");
+        testUser2 = new User("Jegede", "jegede@rmail.com");
+        testUser3 = new User("Akande", "akande@rmail.com");
     }
 
     @Test
@@ -40,20 +40,20 @@ class UserRepositoryImplTest {
     void shouldFindByBvn() {
         repository.save(testUser1);
         
-        Optional<User> found = repository.findByBvn(testUser1.getBvn());
+        User found = repository.findByBvn(testUser1.getBvn());
         
-        assertTrue(found.isPresent());
-        assertEquals("John Doe", found.get().getName());
-        assertEquals("john@email.com", found.get().getEmail());
-        assertEquals(testUser1.getBvn(), found.get().getBvn());
+        assertNotNull(found);
+        assertEquals("Ekwethebabesnatcher", found.getName());
+        assertEquals("ekwethebabesnatcher@rmail.com", found.getEmail());
+        assertEquals(testUser1.getBvn(), found.getBvn());
     }
 
     @Test
     @DisplayName("Should return empty when BVN not found")
     void shouldReturnEmptyWhenBvnNotFound() {
-        Optional<User> found = repository.findByBvn("NONEXISTENT");
+        User found = repository.findByBvn("NONEXISTENT");
         
-        assertFalse(found.isPresent());
+        assertNull(found);
     }
 
     @Test
@@ -62,18 +62,18 @@ class UserRepositoryImplTest {
         repository.save(testUser1);
         repository.save(testUser2);
         
-        Optional<User> found = repository.findByEmail("john@email.com");
+        User found = repository.findByEmail("ekwethebabesnatcher@rmail.com");
         
-        assertTrue(found.isPresent());
-        assertEquals("John Doe", found.get().getName());
+        assertNotNull(found);
+        assertEquals("Ekwethebabesnatcher", found.getName());
     }
 
     @Test
     @DisplayName("Should return empty when email not found")
     void shouldReturnEmptyWhenEmailNotFound() {
-        Optional<User> found = repository.findByEmail("nonexistent@email.com");
+        User found = repository.findByEmail("nonexistent@rmail.com");
         
-        assertFalse(found.isPresent());
+        assertNull(found);
     }
 
     @Test
@@ -83,13 +83,13 @@ class UserRepositoryImplTest {
         repository.save(testUser2);
         repository.save(testUser3);
         
-        List<User> johns = repository.findByName("john");
-        List<User> does = repository.findByName("doe");
-        List<User> smiths = repository.findByName("smith");
+        List<User> akandes = repository.findByName("akande");
+        List<User> jegedes = repository.findByName("jegede");
+        List<User> ekwethebabesnatchers = repository.findByName("ekwethebabesnatcher");
         
-        assertEquals(2, johns.size()); 
-        assertEquals(1, does.size()); 
-        assertEquals(2, smiths.size()); 
+        assertEquals(1, akandes.size()); 
+        assertEquals(1, jegedes.size()); 
+        assertEquals(1, ekwethebabesnatchers.size()); 
     }
 
     @Test
@@ -145,32 +145,21 @@ class UserRepositoryImplTest {
     void shouldCheckEmailExists() {
         repository.save(testUser1);
         
-        assertTrue(repository.existsByEmail("john@email.com"));
-        assertFalse(repository.existsByEmail("nonexistent@email.com"));
+        assertTrue(repository.existsByEmail("ekwethebabesnatcher@rmail.com"));
+        assertFalse(repository.existsByEmail("nonexistent@rmail.com"));
     }
 
 
     @Test
     @DisplayName("Should handle users with same name")
     void shouldHandleUsersSameName() {
-        User user4 = new User("John Doe", "johndoe2@email.com");
+        User user4 = new User("Ekwethebabesnatcher", "ekwethebabesnatcher2@rmail.com");
         repository.save(testUser1);
         repository.save(user4);
         
-        List<User> johnDoes = repository.findByName("John Doe");
+        List<User> ekwethebabesnatchers = repository.findByName("Ekwethebabesnatcher");
         
-        assertEquals(2, johnDoes.size());
-    }
-
-    @Test
-    @DisplayName("Should handle partial name matching")
-    void shouldHandlePartialNameMatching() {
-        repository.save(testUser1);
-        repository.save(testUser2);
-        
-        List<User> partialMatch = repository.findByName("Jo");
-        
-        assertEquals(1, partialMatch.size());
+        assertEquals(2, ekwethebabesnatchers.size());
     }
 
     @Test

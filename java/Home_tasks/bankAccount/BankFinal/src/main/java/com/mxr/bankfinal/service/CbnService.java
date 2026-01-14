@@ -2,6 +2,7 @@ package com.mxr.bankfinal.service;
 
 import com.mxr.bankfinal.data.model.Bank;
 import com.mxr.bankfinal.data.model.BankCode;
+import com.mxr.bankfinal.data.model.Cbn;
 import com.mxr.bankfinal.data.model.Transaction;
 import com.mxr.bankfinal.data.repository.AccountRepository;
 import com.mxr.bankfinal.data.repository.BankRepository;
@@ -118,7 +119,7 @@ public class CbnService {
 
     public String getBankName(String bankCode) {
         BankCode bank = BankCode.fromCode(bankCode);
-        return bank != null ? bank.getName() : null;
+        return bank.getName();
     }
 
     public List<String> getAllBankCodes() {
@@ -130,9 +131,8 @@ public class CbnService {
         if (bank == null) {
             throw new IllegalArgumentException("Bank not found: " + bankCode);
         }
-        
-    
-        return cbn.getBanks();
+
+        return bank.getAccountRepository();
     }
 
     public List<Bank> getAllBanks() {
@@ -149,5 +149,9 @@ public class CbnService {
 
     private boolean isInterBankTransfer(String fromBankCode, String toBankCode) {
         return !fromBankCode.equals(toBankCode);
+    }
+
+    public TransactionService getTransactionService() {
+        return transactionService;
     }
 }

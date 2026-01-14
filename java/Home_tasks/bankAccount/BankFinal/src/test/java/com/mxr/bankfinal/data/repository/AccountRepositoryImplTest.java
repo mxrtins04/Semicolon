@@ -21,9 +21,9 @@ class AccountRepositoryImplTest {
     void setUp() {
         repository = new AccountRepositoryImpl();
         userRepository = new UserRepositoryImpl();
-        testAccount1 = new Account("Jj", "john@email.com", "password123", userRepository);
+        testAccount1 = new Account("Ekwethebabesnatcher", "ekwethebabesnatcher@rmail.com", "password123");
         testAccount1.setAccountNumber("1001");
-        testAccount2 = new Account("Jane Smith", "jane@email.com", "password456", userRepository);
+        testAccount2 = new Account("Jegede", "jegede@rmail.com", "password456");
         testAccount2.setAccountNumber("1002");
 
     }
@@ -48,8 +48,8 @@ class AccountRepositoryImplTest {
         Account found = repository.findByAccountNumber("1001");
         
         assertNotNull(found);
-        assertEquals("Jj", found.getName());
-        assertEquals("john@email.com", found.getEmail());
+        assertEquals("Ekwethebabesnatcher", found.getName());
+        assertEquals("ekwethebabesnatcher@rmail.com", found.getEmail());
         assertEquals("1001", found.getAccountNumber());
     }
 
@@ -67,10 +67,10 @@ class AccountRepositoryImplTest {
         repository.save(testAccount1);
         repository.save(testAccount2);
         
-        List<Account> johnsAccounts = repository.findByEmail("john@email.com");
+        List<Account> johnsAccounts = repository.findByEmail("ekwethebabesnatcher@rmail.com");
         
         assertEquals(1, johnsAccounts.size());
-        assertEquals("John Doe", johnsAccounts.get(0).getName());
+        assertEquals("Ekwethebabesnatcher", johnsAccounts.get(0).getName());
     }
 
     @Test
