@@ -1,4 +1,4 @@
-package com.mxr.bankfinal.NubanGenerator;
+package com.mxr.bankfinal.util;
 import java.util.Random;
 
 public class NubanGenerator {

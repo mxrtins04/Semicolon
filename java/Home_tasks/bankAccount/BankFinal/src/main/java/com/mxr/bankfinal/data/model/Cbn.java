@@ -1,24 +1,29 @@
 package com.mxr.bankfinal.data.model;
 import java.util.ArrayList;
 
+import com.mxr.bankfinal.data.repository.AccountRepository;
+import com.mxr.bankfinal.data.repository.BankRepository;
+
 public class Cbn{
     private BankCode[] bankCodes;
-    private ArrayList<Bank> banks;
+    private BankRepository bankRepository;
+    private AccountRepository accountRepository;
 
-    public Cbn() {
+    public Cbn(BankRepository bankRepository, AccountRepository accountRepository) {
         this.bankCodes = BankCode.values();
-        this.banks = new ArrayList<>();
+        this.bankRepository = bankRepository;
+        this.accountRepository = accountRepository;
     }
 
     public void registerBank(String bankCode) {
-        banks.add(new Bank(bankCode));
+        bankRepository.save(new Bank(bankCode));
     }
 
     public BankCode[] getBankCodes() {
         return bankCodes;
     }
 
-    public ArrayList<Bank> getBanks() {
-        return banks;
+    public BankRepository getBanks() {
+        return bankRepository;
     }
 }

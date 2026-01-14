@@ -1,4 +1,4 @@
-package com.mxr.bankfinal.CreditCardNumber;
+package com.mxr.bankfinal.util;
 
 public class CreditCardNumber {
 

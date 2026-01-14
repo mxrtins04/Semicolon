@@ -1,4 +1,4 @@
-package com.mxr.bankfinal.BVNManager;
+package com.mxr.bankfinal.util;
 public class BVNManager {
     private int BVNNumber;
 

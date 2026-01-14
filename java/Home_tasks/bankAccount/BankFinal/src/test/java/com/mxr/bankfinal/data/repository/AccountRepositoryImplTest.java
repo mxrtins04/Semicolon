@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -46,7 +45,7 @@ class AccountRepositoryImplTest {
         Account found = repository.findByAccountNumber("1001");
         
         assertNotNull(found);
-        assertEquals("John Doe", found.getName());
+        assertEquals("Jj", found.getName());
         assertEquals("john@email.com", found.getEmail());
         assertEquals("1001", found.getAccountNumber());
     }

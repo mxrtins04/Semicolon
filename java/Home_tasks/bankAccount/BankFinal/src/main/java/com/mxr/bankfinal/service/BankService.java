@@ -1,8 +1,8 @@
 package com.mxr.bankfinal.service;
 import com.mxr.bankfinal.data.model.Account;
-import com.mxr.bankfinal.NubanGenerator.NubanGenerator;
 import com.mxr.bankfinal.data.model.Transaction;
 import com.mxr.bankfinal.data.repository.impl.AccountRepositoryImpl;
+import com.mxr.bankfinal.util.NubanGenerator;
 
 import java.util.List;
 

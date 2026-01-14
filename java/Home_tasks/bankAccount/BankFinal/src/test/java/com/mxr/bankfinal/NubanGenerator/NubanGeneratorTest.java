@@ -1,10 +1,13 @@
 package com.mxr.bankfinal.NubanGenerator;
 
 import org.junit.jupiter.api.Test;
+
+import com.mxr.bankfinal.util.NubanGenerator;
+
 import org.junit.jupiter.api.DisplayName;
 
+import static com.mxr.bankfinal.util.NubanGenerator.*;
 import static org.junit.jupiter.api.Assertions.*;
-import static com.mxr.bankfinal.NubanGenerator.NubanGenerator.*;
 class NubanGeneratorTest {
 
     @Test

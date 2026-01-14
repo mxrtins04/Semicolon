@@ -1,4 +1,7 @@
 package com.mxr.bankfinal.data.model;
+
+import com.mxr.bankfinal.data.repository.UserRepository;
+
 public class Account {
     private User user;
     private int balance;
@@ -6,11 +9,13 @@ public class Account {
     private String password;
     private String email;
     private String accountNumber;
+    private final UserRepository userRepository;
 
-    public Account(String name, String email,String password) {
+    public Account(String name, String email,String password, UserRepository userRepository) {
         this.name = name;
         this.password = password;
         this.email = email;
+        this.userRepository = userRepository;
     }
 
     public void setAccountNumber(String accountNumber){
@@ -32,8 +37,10 @@ public class Account {
     }
 
     public String getBvn(){
-        String  Bvn = this.user.getBvn();
-        return Bvn;
+        User user = this.userRepository.findByEmail(this.email);
+        if (user == null) return null;
+        
+        return user.getBvn();
     }
 
     public int withdraw(int amount) {

@@ -3,7 +3,6 @@ import com.mxr.bankfinal.data.model.User;
 import com.mxr.bankfinal.data.repository.UserRepository;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class UserRepositoryImpl implements UserRepository {
     private final List<User> users = new ArrayList<>();
@@ -14,17 +13,19 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public Optional<User> findByBvn(String bvn) {
+    public User findByBvn(String bvn) {
         return users.stream()
                 .filter(user -> user.getBvn().equals(bvn))
-                .findFirst();
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
-    public Optional<User> findByEmail(String email) {
+    public User findByEmail(String email) {
         return users.stream()
                 .filter(user -> user.getEmail().equals(email))
-                .findFirst();
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
