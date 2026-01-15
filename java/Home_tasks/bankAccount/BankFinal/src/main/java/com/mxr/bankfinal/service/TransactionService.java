@@ -5,7 +5,6 @@ import com.mxr.bankfinal.data.model.TransactionType;
 import com.mxr.bankfinal.data.model.Receipt;
 import com.mxr.bankfinal.data.repository.AccountRepository;
 import com.mxr.bankfinal.data.repository.TransactionRepository;
-import com.mxr.bankfinal.data.model.Account;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -22,83 +21,46 @@ public class TransactionService {
     }
 
     public Transaction createDeposit(String accountNumber, double amount, String description) {
-        Account account = accountRepository.findByAccountNumber(accountNumber);
-        if (account == null) {
-            throw new IllegalArgumentException("Account not found: " + accountNumber);
-        }
-        account.deposit(amount);
-        accountRepository.save(account);
-        
         Transaction transaction = new Transaction(TransactionType.DEPOSIT, accountNumber, amount, description);
-        transaction.complete();
         transactionRepository.save(transaction);
         
         return transaction;
     }
 
     public Receipt createDepositWithReceipt(String accountNumber, double amount, String description, String bankName) {
+        if (accountRepository.findByAccountNumber(accountNumber) == null) {
+            throw new IllegalArgumentException("Account not found: " + accountNumber);
+        }
         Transaction transaction = createDeposit(accountNumber, amount, description);
         return receiptService.generateReceipt(transaction, bankName);
     }
 
     public Transaction createWithdrawal(String accountNumber, double amount, String description) {
-
-        Account account = accountRepository.findByAccountNumber(accountNumber);
-        if (account == null) {
-            throw new IllegalArgumentException("Account not found: " + accountNumber);
-        }
-        
-        if (account.getBalance() < amount) {
-            throw new IllegalArgumentException("Insufficient funds in account: " + accountNumber);
-        }
-
-        account.withdraw(amount);
-        accountRepository.save(account);
-        
         Transaction transaction = new Transaction(TransactionType.WITHDRAWAL, accountNumber, amount, description);
-        transaction.complete();
         transactionRepository.save(transaction);
         
         return transaction;
     }
 
     public Receipt createWithdrawalWithReceipt(String accountNumber, double amount, String description, String bankName) {
+        if (accountRepository.findByAccountNumber(accountNumber) == null) {
+            throw new IllegalArgumentException("Account not found: " + accountNumber);
+        }
         Transaction transaction = createWithdrawal(accountNumber, amount, description);
         return receiptService.generateReceipt(transaction, bankName);
     }
 
     public Transaction createTransfer(String fromAccount, String toAccount, double amount, String description) {
-        Account fromAcc = accountRepository.findByAccountNumber(fromAccount);
-        Account toAcc = accountRepository.findByAccountNumber(toAccount);
-        
-        if (fromAcc == null) {
-            throw new IllegalArgumentException("From account not found: " + fromAccount);
-        }
-        if (toAcc == null) {
-            throw new IllegalArgumentException("To account not found: " + toAccount);
-        }
-        
-        if (fromAcc.getBalance() < amount) {
-            throw new IllegalArgumentException("Insufficient funds in account: " + fromAccount);
-        }
-        
-
-        fromAcc.withdraw(amount);
-        toAcc.deposit(amount);
-        
-
-        accountRepository.save(fromAcc);
-        accountRepository.save(toAcc);
-        
-
         Transaction transaction = new Transaction(TransactionType.TRANSFER, fromAccount, toAccount, amount, description);
-        transaction.complete();
         transactionRepository.save(transaction);
         
         return transaction;
     }
 
     public Receipt createTransferWithReceipt(String fromAccount, String toAccount, double amount, String description, String bankName) {
+        if (accountRepository.findByAccountNumber(fromAccount) == null) {
+            throw new IllegalArgumentException("Account not found: " + fromAccount);
+        }
         Transaction transaction = createTransfer(fromAccount, toAccount, amount, description);
         return receiptService.generateReceipt(transaction, bankName);
     }

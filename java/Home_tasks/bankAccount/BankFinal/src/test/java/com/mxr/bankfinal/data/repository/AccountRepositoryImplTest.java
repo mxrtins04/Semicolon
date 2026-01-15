@@ -67,10 +67,11 @@ class AccountRepositoryImplTest {
         repository.save(testAccount1);
         repository.save(testAccount2);
         
-        List<Account> johnsAccounts = repository.findByEmail("ekwethebabesnatcher@rmail.com");
+        List<Account> accounts = repository.findByEmail("ekwethebabesnatcher@rmail.com");
         
-        assertEquals(1, johnsAccounts.size());
-        assertEquals("Ekwethebabesnatcher", johnsAccounts.get(0).getName());
+        assertFalse(accounts.isEmpty(), "Should find at least one account");
+        assertEquals(1, accounts.size());
+        assertEquals("Ekwethebabesnatcher", accounts.get(0).getName());
     }
 
     @Test

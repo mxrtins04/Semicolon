@@ -20,10 +20,8 @@ public class NubanGenerator {
     }
     
     private static String generateSerialNumber() {
-    
         int serial = random.nextInt(999999999) + 1;
-        String serialStr = String.valueOf(serial);
-        return serialStr;
+        return String.format("%09d", serial);
     }
     
     public static int calculateCheckDigit(String nubanWithoutCheck) {

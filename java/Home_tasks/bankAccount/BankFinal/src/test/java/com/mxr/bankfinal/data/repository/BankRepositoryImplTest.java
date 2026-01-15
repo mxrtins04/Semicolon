@@ -2,6 +2,10 @@ package com.mxr.bankfinal.data.repository;
 
 import com.mxr.bankfinal.data.model.Bank;
 import com.mxr.bankfinal.data.repository.impl.BankRepositoryImpl;
+import com.mxr.bankfinal.service.TransactionService;
+import com.mxr.bankfinal.data.repository.impl.TransactionRepositoryImpl;
+import com.mxr.bankfinal.service.ReceiptService;
+import com.mxr.bankfinal.data.repository.impl.AccountRepositoryImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -19,8 +23,13 @@ class BankRepositoryImplTest {
     @BeforeEach
     void setUp() {
         repository = new BankRepositoryImpl();
-        testBank1 = new Bank("044");
-        testBank2 = new Bank("058");
+        TransactionRepositoryImpl transactionRepository = new TransactionRepositoryImpl();
+        AccountRepositoryImpl accountRepository = new AccountRepositoryImpl();
+        ReceiptService receiptService = new ReceiptService(accountRepository);
+        TransactionService transactionService = new TransactionService(transactionRepository, receiptService, accountRepository);
+        
+        testBank1 = new Bank("044", transactionService);
+        testBank2 = new Bank("058", transactionService);
     }
 
     @Test
@@ -167,7 +176,12 @@ class BankRepositoryImplTest {
     @Test
     @DisplayName("Should handle banks with similar names")
     void shouldHandleBanksWithSimilarNames() {
-        Bank bank3 = new Bank("032");   
+        TransactionRepositoryImpl transactionRepository = new TransactionRepositoryImpl();
+        AccountRepositoryImpl accountRepository = new AccountRepositoryImpl();
+        ReceiptService receiptService = new ReceiptService(accountRepository);
+        TransactionService transactionService = new TransactionService(transactionRepository, receiptService, accountRepository);
+        
+        Bank bank3 = new Bank("032", transactionService);   
         repository.save(testBank1);
         repository.save(bank3);
         

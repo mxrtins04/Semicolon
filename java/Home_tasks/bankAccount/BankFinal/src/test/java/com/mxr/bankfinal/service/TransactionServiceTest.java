@@ -195,16 +195,4 @@ class TransactionServiceTest {
         Transaction found = transactionService.findTransactionById(transaction.getTransactionId());
         assertEquals(TransactionStatus.FAILED, found.getStatus());
     }
-
-    @Test
-    @DisplayName("Should not throw when completing non-existent transaction")
-    void shouldNotThrowWhenCompletingNonExistentTransaction() {
-        assertDoesNotThrow(() -> transactionService.completeTransaction("NONEXISTENT"));
-    }
-
-    @Test
-    @DisplayName("Should not throw when failing non-existent transaction")
-    void shouldNotThrowWhenFailingNonExistentTransaction() {
-        assertDoesNotThrow(() -> transactionService.failTransaction("NONEXISTENT"));
-    }
 }

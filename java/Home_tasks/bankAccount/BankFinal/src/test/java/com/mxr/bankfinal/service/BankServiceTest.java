@@ -189,7 +189,7 @@ public class BankServiceTest {
         assertEquals(1500.0, bankService.getBalance(accountNumber));
         
         var transactions = transactionService.getAccountTransactions(accountNumber);
-        assertEquals(3, transactions.size());
+        assertEquals(2, transactions.size());
     }
 
     @Test
@@ -205,7 +205,7 @@ public class BankServiceTest {
         assertEquals(1200.0, bankService.getBalance(accountNumber));
         
         var transactions = transactionService.getAccountTransactions(accountNumber);
-        assertEquals(3, transactions.size());
+        assertEquals(2, transactions.size());
     }
 
     @Test

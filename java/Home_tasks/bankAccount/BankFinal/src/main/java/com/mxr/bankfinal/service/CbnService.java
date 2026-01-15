@@ -15,16 +15,14 @@ import java.util.List;
 public class CbnService {
     private final BankRepository bankRepository;
     private final TransactionService transactionService;
-    private final List<BankService> bankServices;
     private final List<String> bankCodes;
     private final Cbn cbn;
 
     public CbnService(BankRepository bankRepository, TransactionService transactionService) {
         this.bankRepository = bankRepository;
         this.transactionService = transactionService;
-        this.bankServices = new ArrayList<>();
         this.bankCodes = new ArrayList<>();
-        this.cbn = new Cbn(bankRepository, new AccountRepositoryImpl());
+        this.cbn = new Cbn(bankRepository, transactionService);
     }
 
     public void registerBank(String bankCode) {
@@ -40,31 +38,18 @@ public class CbnService {
         bankCodes.add(bankCode);
     }
 
-    public void registerBankService(String bankCode, BankService bankService) {
-        if (!bankRepository.exists(bankCode)) {
-            throw new IllegalArgumentException("Bank not registered: " + bankCode);
-        }
-        
-        int index = bankCodes.indexOf(bankCode);
-        if (index == -1) {
-            bankCodes.add(bankCode);
-            bankServices.add(bankService);
-        } else {
-            bankServices.set(index, bankService);
-        }
-    }
-
+    
     private BankService findBankService(String bankCode) {
-        for (int i = 0; i < bankCodes.size(); i++) {
-            if (bankCodes.get(i).equals(bankCode)) {
-                return bankServices.get(i);
-            }
-        }
-        return null;
+        Bank bank = bankRepository.findByCode(bankCode);
+        return bank != null ? bank.getBankService() : null;
     }
 
     private boolean hasBankService(String bankCode) {
-        return bankCodes.contains(bankCode);
+        return findBankService(bankCode) != null;
+    }
+
+    public BankService getBankService(String bankCode) {
+        return findBankService(bankCode);
     }
 
     public Transaction transfer(String fromBankCode, String fromAccount,
@@ -119,6 +104,9 @@ public class CbnService {
 
     public String getBankName(String bankCode) {
         BankCode bank = BankCode.fromCode(bankCode);
+        if (bank == null) {
+            return null;
+        }
         return bank.getName();
     }
 

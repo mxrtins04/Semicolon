@@ -1,23 +1,21 @@
 package com.mxr.bankfinal.data.model;
-import java.util.ArrayList;
 
-import com.mxr.bankfinal.data.repository.AccountRepository;
 import com.mxr.bankfinal.data.repository.BankRepository;
+import com.mxr.bankfinal.service.TransactionService;
 
 public class Cbn{
-    private BankCode[] bankCodes;
-    private BankRepository bankRepository;
-    private AccountRepository accountRepository;
+    private final BankCode[] bankCodes;
+    private final BankRepository bankRepository;
+    private final TransactionService transactionService;
 
-    public Cbn(BankRepository bankRepository, AccountRepository accountRepository) {
+    public Cbn(BankRepository bankRepository, TransactionService transactionService) {
         this.bankCodes = BankCode.values();
         this.bankRepository = bankRepository;
-        this.accountRepository = accountRepository;
+        this.transactionService = transactionService;
     }
 
     public void registerBank(String bankCode) {
-        Bank bank = new Bank(bankCode);
-        bank.setDataStorage(accountRepository);
+        Bank bank = new Bank(bankCode, transactionService);
         bankRepository.save(bank);
     }
 

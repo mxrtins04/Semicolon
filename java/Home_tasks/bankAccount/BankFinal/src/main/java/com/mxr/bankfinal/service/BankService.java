@@ -22,8 +22,6 @@ public class BankService {
         Account newAccount = new Account(name, email, password);
         newAccount.setAccountNumber(nubanAccountNumber);
         accountRepository.save(newAccount);
-        
-        transactionService.createDeposit(nubanAccountNumber, 0.0, "Account created");
         return newAccount;
     }
 

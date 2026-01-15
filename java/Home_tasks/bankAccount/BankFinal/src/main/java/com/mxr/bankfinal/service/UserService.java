@@ -20,6 +20,10 @@ public class UserService {
         if (emailExists(email)) {
             throw new IllegalArgumentException("Email already exists: " + email);
         }
+
+        if (email == null || email.isEmpty()) {
+            throw new IllegalArgumentException("Email cannot be null or empty");
+        }
         
         User user = new User(name, email);
         userRepository.save(user);

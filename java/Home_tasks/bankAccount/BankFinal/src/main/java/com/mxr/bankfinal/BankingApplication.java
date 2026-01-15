@@ -54,7 +54,7 @@ public class BankingApplication {
                     handleBankOperations();
                     break;
                 case "5":
-                    System.out.println("Thank you for using Banking System CLI. Goodbye!");
+                    System.out.println("Thank you for using Mxr's Banking System. Goodbye!");
                     return;
                 default:
                     System.out.println("Invalid choice. Please try again.");

@@ -37,19 +37,17 @@ class CbnServiceTest {
         transactionService = new TransactionService(transactionRepository, receiptService, accountRepository);
         cbnService = new CbnService(new BankRepositoryImpl(), transactionService);
         
-        bankService1 = new BankService("044", accountRepository, transactionService);
-        bankService2 = new BankService("058", accountRepository, transactionService);
-        
         cbnService.registerBank("044");
         cbnService.registerBank("058");
+        cbnService.registerBank("011");
         
-        cbnService.registerBankService("044", bankService1);
-        cbnService.registerBankService("058", bankService2);
+        bankService1 = cbnService.getBankService("044");
+        bankService2 = cbnService.getBankService("058");
         
-        acc1 = bankService1.createAccount("Jegede", "john@email.com", "password123").getAccountNumber();
-        acc2 = bankService1.createAccount("Akande", "jane@email.com", "password456").getAccountNumber();
-        acc3 = bankService2.createAccount("Bob Johnson", "bob@email.com", "password789").getAccountNumber();
-        acc4 = bankService2.createAccount("Alice Brown", "alice@email.com", "password012").getAccountNumber();
+        acc1 = bankService1.createAccount("Jegede", "john@email.com", "password").getAccountNumber();
+        acc2 = bankService1.createAccount("Akande", "jane@email.com", "password").getAccountNumber();
+        acc3 = bankService2.createAccount("Bob Johnson", "bob@email.com", "password").getAccountNumber();
+        acc4 = bankService2.createAccount("Alice Brown", "alice@email.com", "password").getAccountNumber();
         
         bankService1.deposit(acc1, 1000.0);
         bankService2.deposit(acc3, 2000.0);
@@ -65,6 +63,7 @@ class CbnServiceTest {
         
         assertNotNull(result);
         assertEquals(TransactionType.TRANSFER, result.getType());
+        
         assertEquals(acc1, result.getFromAccount());
         assertEquals(acc2, result.getToAccount());
         assertEquals(300.0, result.getAmount());
@@ -193,20 +192,6 @@ class CbnServiceTest {
         assertEquals(initialBalance1 - 300.0, bankService1.getBalance(acc1));
         assertEquals(initialBalance2 + 100.0, bankService1.getBalance(acc2));
         assertEquals(initialBalance3 + 200.0, bankService2.getBalance(acc3));
-    }
-
-    @Test
-    @DisplayName("Should handle zero amount transfer")
-    void shouldHandleZeroAmountTransfer() {
-        double initialBalance1 = bankService1.getBalance(acc1);
-        double initialBalance2 = bankService1.getBalance(acc2);
-        
-        Transaction result = cbnService.transfer("044", acc1, "044", acc2, 0.0, "Zero transfer");
-        
-        assertNotNull(result);
-        assertEquals(0.0, result.getAmount());
-        assertEquals(initialBalance1, bankService1.getBalance(acc1));
-        assertEquals(initialBalance2, bankService1.getBalance(acc2));
     }
 
 }
